@@ -1,5 +1,6 @@
 // some colour variables
-  var tcBlack = "#130C0E";
+  // var tcBlack = "#130C0E";
+  var tcBlack = "#808080";
 
 // rest of vars
 var w = 960,
@@ -13,8 +14,9 @@ var vis;
 var force = d3.layout.force(); 
 
 vis = d3.select("#vis").append("svg").attr("width", w).attr("height", h);
- 
-d3.json("assets/js/marvel.json", function(json) {
+
+d3.json("assets/js/data-v2.json", function(json) { 
+// d3.json("assets/js/marvel.json", function(json) {
  
   root = json;
   root.fixed = true;
@@ -38,9 +40,10 @@ d3.json("assets/js/marvel.json", function(json) {
  *   
  */
 function update() {
-  var nodes = flatten(root),
-      links = d3.layout.tree().links(nodes);
+  var nodes = flatten(root);
+  var links = d3.layout.tree().links(nodes);
  
+  
   // Restart the force layout.
   force.nodes(nodes)
         .links(links)
@@ -50,6 +53,8 @@ function update() {
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
+    // .force("x", d3.forceX())
+    // .force("y", d3.forceY())
     .on("tick", tick)
         .start();
  
@@ -87,7 +92,7 @@ function update() {
    
   // Append images
   var images = nodeEnter.append("svg:image")
-        .attr("xlink:href",  function(d) { return d.img;})
+        .attr("xlink:href",  function(d) { return !!d.image ? '/assets/doodles-100px/' + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
         .attr("height", 50)
@@ -127,7 +132,7 @@ function update() {
       .attr("x", x_browser)
       .attr("y", y_browser +15)
       .attr("fill", tcBlack)
-      .text(function(d) { return d.hero; });
+      .text(function(d) { return d.title; });
  
  
   // Exit any old nodes.
@@ -172,13 +177,13 @@ function nodeTransform(d) {
  * Toggle children on click.
  */ 
 function click(d) {
-  if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
+  // if (d.children) {
+  //   d._children = d.children;
+  //   d.children = null;
+  // } else {
+  //   d.children = d._children;
+  //   d._children = null;
+  // }
  
   update();
 }
@@ -188,17 +193,39 @@ function click(d) {
  * Returns a list of all nodes under the root.
  */ 
 function flatten(root) {
-  var nodes = []; 
-  var i = 0;
- 
-  function recurse(node) {
-    if (node.children) 
-      node.children.forEach(recurse);
-    if (!node.id) 
-      node.id = ++i;
-    nodes.push(node);
+  var nodes = root.record; 
+  // .map returns us categories of every node, and we're filtering to remove duplicates
+  var categories = nodes.map(node => node.category.id)
+                          .filter((value, index, self) => self.indexOf(value) === index),
+      categoryNodeArray = [];
+  for(var i = 0; i < categories.length; i++)
+  {
+    var category = {
+      categoryID: categories[i],
+      children: nodes.filter(function(node){
+        return node.category.id === categories[i]
+      })
+    }
+    if(category.children.length > 1)
+      categoryNodeArray.push(category);
   }
- 
-  recurse(root);
-  return nodes;
+
+  return nodes.concat(categoryNodeArray);;
 } 
+
+// function flatten(root) {
+//   var nodes = []; 
+//   var i = 0;
+ 
+//   function recurse(node) {
+//     if (node.children) 
+//       node.children.forEach(recurse);
+//     if (!node.id) 
+//       node.id = ++i;
+//     nodes.push(node);
+//   }
+ 
+//   recurse(root);
+//   debugger;
+//   return nodes;
+// }
