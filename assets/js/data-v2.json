@@ -1,0 +1,402 @@
+{
+   "id": "101",
+   "count": "19",
+   "record": [
+      {
+         "id": "8",
+         "title": "Giorgio Agamben",
+         "artist": "We have already seen how the state of siege had its origin in France during the Revolution...",
+         "link": {
+            "url": "http://www.press.uchicago.edu/Misc/Chicago/009254.html",
+            "target": "_blank"
+         },
+         "category": {
+            "id": "5",
+            "nicename": "reader",
+            "text": "Revolutionary Reader"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_046-wheel.png"
+         },
+         "related": "64,67,101,1,78",
+         "tags": "Remembering, Rotating"
+      },
+      {
+         "id": "15",
+         "title": "Jacques Ranciere",
+         "artist": "Art is not political owing to the messages and feelings that it conveys on the state of social and political issues. Nor is it political owing to the way it represents social structures, conflicts or identities. It is political by virtue of the very distance that it takes with respect to those functions...\nSelected by: Liam Gillick",
+         "link": {
+            "url": "http://www.16beavergroup.org/mtarchive/archives/001877.php",
+            "target": "_blank"
+         },
+         "category": {
+            "id": "5",
+            "nicename": "reader",
+            "text": "Revolutionary Reader"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_028-360.png"
+         },
+         "related": "110,84,16,94,72",
+         "tags": "Political and social revolution"
+      },
+      {
+         "id": "19",
+         "title": "Slavoj Zizek",
+         "artist": "\"Democracy\" is not merely the \"power of, by, and for the people,\" it is not enough just to claim that, in democracy, the will and the interests (the two in no way automatically coincide) of the large majority determine the state decisions...",
+         "link": {
+            "url": "http://www.makeworlds.org/node/159",
+            "target": "_blank"
+         },
+         "category": {
+            "id": "5",
+            "nicename": "reader",
+            "text": "Revolutionary Reader"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_030-30percent.png"
+         },
+         "related": "17,191,18,71,127",
+         "tags": "Political and social revolution"
+      },
+      {
+         "id": "68",
+         "title": "Francis Alÿs",
+         "artist": "\"The happiness of the circle puts an end to the all vertical happiness of the gods who take advantage of the distance they have from the earth.\"\nSelected by: Francis Alÿs",
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/reader/68",
+            "target": "_top"
+         },
+         "category": {
+            "id": "5",
+            "nicename": "reader",
+            "text": "Revolutionary Reader"
+         },
+         "badge": {
+            "url": ""
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_005-pivot.png"
+         },
+         "related": "191,40,105,174,124",
+         "tags": "Mirror, Revolving, Space"
+      },
+      {
+         "id": "69",
+         "title": "Michael Hardt and Antonio Negri",
+         "artist": "A cycle was constructed as news of a revolt was communicated and applied in each new context, just as in an earlier era merchant ships carried the news of slave revolt from island to island around the Caribbean, igniting a stubborn string of fire that could not be quenched.",
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/reader/69",
+            "target": "_top"
+         },
+         "category": {
+            "id": "5",
+            "nicename": "reader",
+            "text": "Revolutionary Reader"
+         },
+         "badge": {
+            "url": ""
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_051-project.png"
+         },
+         "related": "125,16,18,174,107",
+         "tags": "Revolutionary, Surveillance, Turning upside down, Virtuality"
+      },
+      {
+         "id": "72",
+         "title": "Julia Kristeva",
+         "artist": "One word on everyone's lips in May '68 was \"contestation.\" It expresses a fundamental version of freedom: not freedom to change or to succeed, but freedom to revolt, to call things into question.",
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/reader/72",
+            "target": "_top"
+         },
+         "category": {
+            "id": "5",
+            "nicename": "reader",
+            "text": "Revolutionary Reader"
+         },
+         "badge": {
+            "url": ""
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_037-cluster.png"
+         },
+         "related": "179,170,16,19,71",
+         "tags": "Historical 1960s and 1970s, Political and social revolution, Revolutionary"
+      },
+      {
+         "id": "101",
+         "title": "Kate Pullinger & Chris Joseph",
+         "artist": "Inanimate Alice",
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/artwork-ext/101",
+            "target": "_top"
+         },
+         "category": {
+            "id": "8",
+            "nicename": "artwork-ext",
+            "text": "Artwork External"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_042-84.png"
+         },
+         "related": "118,108,1,158,39",
+         "tags": "Remembering, Repeating"
+      },
+      {
+         "id": "107",
+         "title": "Stanza",
+         "artist": "Sensity",
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/artwork-ext/107",
+            "target": "_top"
+         },
+         "category": {
+            "id": "8",
+            "nicename": "artwork-ext",
+            "text": "Artwork External"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_024-armiture.png"
+         },
+         "related": "98,105,106,47,19",
+         "tags": "Institution, Political and social revolution, Recycling, Research, Surveillance, Turning upside down"
+      },
+      {
+         "id": "147",
+         "title": "Stuart Ringholt",
+         "artist": "William Street",
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/video/147",
+            "target": "_top"
+         },
+         "category": {
+            "id": "4",
+            "nicename": "video",
+            "text": "New Video"
+         },
+         "badge": {
+            "url": ""
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_041-cylinder.png"
+         },
+         "related": "167,70,106,108,78",
+         "tags": "Encountering, Institution, Performance, Repeating, Rewinding, Slowing down"
+      },
+      {
+         "id": "167",
+         "title": "Slavoj Zizek",
+         "artist": "The first public reaction to the idea of re-actualizing Lenin is, of course, an outburst of sarcastic laughter: Marx is OK, even on Wall Street, there are people who love him today - Marx the poet of commodities, who provided perfect descriptions of the capitalist dynamics, Marx of the Cultural Studies, who portrayed the alienation and reification of our daily lives -, but Lenin, no, you can't be serious...",
+         "link": {
+            "url": "http://www.lacan.com/replenin.htm",
+            "target": "_blank"
+         },
+         "category": {
+            "id": "5",
+            "nicename": "reader",
+            "text": "Revolutionary Reader"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_029-loop.png"
+         },
+         "related": "85,106,168,110,118",
+         "tags": "Existing works, Recycling, Repeating"
+      },
+      {
+         "id": "170",
+         "title": "www.marcelduchamp.net",
+         "artist": [],
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/link/170",
+            "target": "_top"
+         },
+         "category": {
+            "id": "6",
+            "nicename": "link",
+            "text": "Contextual Link"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_017-set.png"
+         },
+         "related": "52,175,103,178,73",
+         "tags": "Revolutionary"
+      },
+      {
+         "id": "172",
+         "title": "Multiplicity",
+         "artist": [],
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/link/172",
+            "target": "_top"
+         },
+         "category": {
+            "id": "6",
+            "nicename": "link",
+            "text": "Contextual Link"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_048-turn.png"
+         },
+         "related": "175,16,177,176,17",
+         "tags": "Revolutionary"
+      },
+      {
+         "id": "174",
+         "title": "Saburo Murakami",
+         "artist": [],
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/link/174",
+            "target": "_top"
+         },
+         "category": {
+            "id": "6",
+            "nicename": "link",
+            "text": "Contextual Link"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_008-circle.png"
+         },
+         "related": "178,67,68,105,69",
+         "tags": "Revolutionary, Space"
+      },
+      {
+         "id": "176",
+         "title": "Rhizome",
+         "artist": [],
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/link/176",
+            "target": "_top"
+         },
+         "category": {
+            "id": "6",
+            "nicename": "link",
+            "text": "Contextual Link"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_013-oval.png"
+         },
+         "related": "72,98,73,177,173",
+         "tags": "Revolutionary"
+      },
+      {
+         "id": "177",
+         "title": "The Artists Village",
+         "artist": [],
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/link/177",
+            "target": "_top"
+         },
+         "category": {
+            "id": "6",
+            "nicename": "link",
+            "text": "Contextual Link"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_004-wheel.png"
+         },
+         "related": "103,71,98,69,73",
+         "tags": "Revolutionary"
+      },
+      {
+         "id": "178",
+         "title": "The Meatrix",
+         "artist": [],
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/link/178",
+            "target": "_top"
+         },
+         "category": {
+            "id": "6",
+            "nicename": "link",
+            "text": "Contextual Link"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_033-inout.png"
+         },
+         "related": "16,73,181,170,177",
+         "tags": "Revolutionary"
+      },
+      {
+         "id": "179",
+         "title": "www.googlewhack.com",
+         "artist": [],
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/link/179",
+            "target": "_top"
+         },
+         "category": {
+            "id": "6",
+            "nicename": "link",
+            "text": "Contextual Link"
+         },
+         "badge": {
+            "url": "/wp-content/themes/onlinevenue/images/link.png"
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_031-wheel.png"
+         },
+         "related": "98,71,169,172,171",
+         "tags": "Revolutionary"
+      },
+      {
+         "id": "191",
+         "title": "Drawings",
+         "artist": "Dan Perjovschi\nCourtesy the artist and Gregor Podnar Gallery Berlin, Lombard Freid Projects New York & Galeria Helga de Alvear Madrid.",
+         "link": {
+            "url": "https://onlinevenue.holly.media/record/artwork-images/191",
+            "target": "_top"
+         },
+         "category": {
+            "id": "9",
+            "nicename": "artwork-images",
+            "text": "Artwork Image Gallery"
+         },
+         "badge": {
+            "url": ""
+         },
+         "image": {
+            "url": "/wp-content/themes/onlinevenue/images/doodles/_019-square.png"
+         },
+         "related": "68,107,96,73,16",
+         "tags": "Mirror, Political and social revolution"
+      }
+   ]
+}
