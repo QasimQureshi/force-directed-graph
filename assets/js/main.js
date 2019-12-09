@@ -91,7 +91,7 @@ function update() {
  
    
   // Append images
-  var imageBasePath = (document.location.href.indexOf('localho:st') ? '/assets/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/doodles-100px/');
+  var imageBasePath = (document.location.href.indexOf('localhost') !== -1 ? '/assets/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/doodles-100px/');
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
         .attr("x", function(d) { return -25;})
