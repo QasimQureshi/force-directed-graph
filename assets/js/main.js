@@ -92,7 +92,7 @@ function update() {
    
   // Append images
   var images = nodeEnter.append("svg:image")
-        .attr("xlink:href",  function(d) { return !!d.image ? '/assets/doodles-100px/' + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
+        .attr("xlink:href",  function(d) { return !!d.image ? 'assets/doodles-100px/' + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
         .attr("height", 50)
