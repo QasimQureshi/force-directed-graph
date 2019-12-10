@@ -10,8 +10,8 @@ var w = 960,
     y_browser = 25,
     root;
  
-var vis;
-var force = d3.layout.force(); 
+var vis; // points to our container element
+var force = d3.layout.force();  // D3's force layoud
 
 vis = d3.select("#vis").append("svg").attr("width", w).attr("height", h);
 
@@ -24,7 +24,7 @@ d3.json("assets/js/data-v2.json", function(json) {
   root.y = h / 4;
  
  
-        // Build the path
+  // Build the path
   var defs = vis.insert("svg:defs")
       .data(["end"]);
  
@@ -32,7 +32,7 @@ d3.json("assets/js/data-v2.json", function(json) {
   defs.enter().append("svg:path")
       .attr("d", "M0,-5L10,0L0,5");
  
-     update();
+  update();
 });
  
  
@@ -91,7 +91,7 @@ function update() {
  
    
   // Append images
-  var imageBasePath = (document.location.href.indexOf('localhost') !== -1 ? '/assets/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/doodles-100px/');
+  var imageBasePath = (document.location.href.indexOf('github') === -1 ? '/assets/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/doodles-100px/');
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
         .attr("x", function(d) { return -25;})
@@ -145,7 +145,6 @@ function update() {
   node = vis.selectAll("g.node");
  
 function tick() {
- 
  
     path.attr("d", function(d) {
  
