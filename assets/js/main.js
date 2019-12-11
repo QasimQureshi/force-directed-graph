@@ -53,8 +53,6 @@ function update() {
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
-    // .force("x", d3.forceX())
-    // .force("y", d3.forceY())
     .on("tick", tick)
         .start();
  
@@ -63,13 +61,11 @@ function update() {
  
     path.enter().insert("svg:path")
       .attr("class", "link")
-      // .attr("marker-end", "url(#end)")
       .style("stroke", "#eee");
  
  
   // Exit any old paths.
   path.exit().remove();
- 
  
  
   // Update the nodes…
@@ -91,6 +87,7 @@ function update() {
  
    
   // Append images
+  // Workaround to load images on GitHub pages
   var imageBasePath = (document.location.href.indexOf('github') === -1 ? '/assets/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/doodles-100px/');
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
@@ -103,9 +100,15 @@ function update() {
   var setEvents = images
           // Append hero text
           .on( 'click', function (d) {
-              d3.select("h1").html(d.hero); 
-              d3.select("h2").html(d.name); 
-              d3.select("h3").html ("Take me to " + "<a href='" + d.link + "' >"  + d.hero + " web page ⇢"+ "</a>" ); 
+
+            // Selecting a node
+            d3.select( this )
+              .transition()
+              .attr("x", function(d) { return w / 2; })
+              .attr("y", function(d) { return h / 2;})
+              // d3.select("h1").html(d.hero); 
+              // d3.select("h2").html(d.name); 
+              // d3.select("h3").html ("Take me to " + "<a href='" + d.link + "' >"  + d.hero + " web page ⇢"+ "</a>" ); 
            })
 
           .on( 'mouseenter', function() {
@@ -177,13 +180,7 @@ function nodeTransform(d) {
  * Toggle children on click.
  */ 
 function click(d) {
-  // if (d.children) {
-  //   d._children = d.children;
-  //   d.children = null;
-  // } else {
-  //   d.children = d._children;
-  //   d._children = null;
-  // }
+  
  
   update();
 }
