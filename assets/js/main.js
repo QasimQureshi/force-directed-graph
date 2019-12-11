@@ -90,6 +90,7 @@ function update() {
   // Workaround to load images on GitHub pages
   var imageBasePath = (document.location.href.indexOf('github') === -1 ? '/assets/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/doodles-100px/');
   var images = nodeEnter.append("svg:image")
+        // ternary operator checks to ensure this node has an image
         .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
@@ -101,7 +102,10 @@ function update() {
           // Append hero text
           .on( 'click', function (d) {
 
-            // Selecting a node
+            debugger;
+            // Opening the node's link in a new page
+            window.location.href = d.link.url;
+            
             d3.select( this )
               .transition()
               .attr("x", function(d) { return w / 2; })
@@ -180,7 +184,13 @@ function nodeTransform(d) {
  * Toggle children on click.
  */ 
 function click(d) {
-  
+  // if (d.children) {
+  //   d._children = d.children;
+  //   d.children = null;
+  // } else {
+  //   d.children = d._children;
+  //   d._children = null;
+  // }
  
   update();
 }
