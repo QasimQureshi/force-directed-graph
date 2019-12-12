@@ -9,6 +9,7 @@ var w = 960,
     x_browser = 20,
     y_browser = 25,
     isFocusLocked = false,  // Set to true when we're moving a node to the center & selecting it
+    clickedNode, // Points to the node that was clicked
     root;
  
 var vis; // points to our container element
@@ -100,9 +101,10 @@ function update() {
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
-          // Append hero text
+          // Node click handler qwer
           .on( 'click', function (d) {
             debugger;
+            clickedNode = d;
             isFocusLocked = true;
             // Opening the node's link in a new page
             // window.location.href = d.link.url;
@@ -153,11 +155,11 @@ function update() {
   node = vis.selectAll("g.node");
  
 
-// The basic enterFrame function
+// The basic enterFrame function asdf
 function tick() {
 
-  if(!isFocusLocked)
-  {
+  // if(!isFocusLocked)
+  // {
 
     path.attr("d", function(d) {
         
@@ -167,17 +169,16 @@ function tick() {
 
       var val = "M" + d.source.x + "," 
                 + d.source.y 
-                + "A" + dr + "," 
-                + dr + " 0 0,1 " 
-                + d.target.x + "," 
+                + "L" + d.target.x + "," 
                 + d.target.y;
+
       // debugger;
       return val;
     });
     node.attr("transform", nodeTransform);
-  }else{
-    debugger;
-  }
+  // }else{
+  //   debugger;
+  // }
   
   }
 }// Containing block ends
