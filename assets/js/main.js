@@ -8,6 +8,7 @@ var w = 960,
     maxNodeSize = 50,
     x_browser = 20,
     y_browser = 25,
+    isFocusLocked = false,  // Set to true when we're moving a node to the center & selecting it
     root;
  
 var vis; // points to our container element
@@ -46,8 +47,8 @@ function update() {
   
   // Restart the force layout.
   force.nodes(nodes)
-        .links(links)
-        .gravity(0.05)
+    .links(links)
+    .gravity(0.05)
     .charge(-1500)
     .linkDistance(100)
     .friction(0.5)
@@ -101,10 +102,10 @@ function update() {
   var setEvents = images
           // Append hero text
           .on( 'click', function (d) {
-
             debugger;
+            isFocusLocked = true;
             // Opening the node's link in a new page
-            window.location.href = d.link.url;
+            // window.location.href = d.link.url;
             
             d3.select( this )
               .transition()
@@ -151,23 +152,35 @@ function update() {
   path = vis.selectAll("path.link");
   node = vis.selectAll("g.node");
  
+
+// The basic enterFrame function
 function tick() {
- 
+
+  if(!isFocusLocked)
+  {
+
     path.attr("d", function(d) {
- 
-     var dx = d.target.x - d.source.x,
-           dy = d.target.y - d.source.y,
-           dr = Math.sqrt(dx * dx + dy * dy);
-           return   "M" + d.source.x + "," 
-            + d.source.y 
-            + "A" + dr + "," 
-            + dr + " 0 0,1 " 
-            + d.target.x + "," 
-            + d.target.y;
-  });
-    node.attr("transform", nodeTransform);    
+        
+      var dx = d.target.x - d.source.x,
+          dy = d.target.y - d.source.y,
+          dr = Math.sqrt(dx * dx + dy * dy);
+
+      var val = "M" + d.source.x + "," 
+                + d.source.y 
+                + "A" + dr + "," 
+                + dr + " 0 0,1 " 
+                + d.target.x + "," 
+                + d.target.y;
+      // debugger;
+      return val;
+    });
+    node.attr("transform", nodeTransform);
+  }else{
+    debugger;
   }
-}
+  
+  }
+}// Containing block ends
 
  
 /**
@@ -175,8 +188,8 @@ function tick() {
  * http://bl.ocks.org/mbostock/1129492
  */ 
 function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 16), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 16), d.y));
+  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/8 || 16), d.x));
+    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/8 || 16), d.y));
     return "translate(" + d.x + "," + d.y + ")";
    }
  
