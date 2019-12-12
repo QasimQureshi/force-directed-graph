@@ -1,12 +1,27 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
-body {font-family: "Source Code Pro", Consolas, monaco, monospace; line-height: 160%; font-size: 16px;  margin: 0; background-image: url(/assets/images/background_004.png); background-size: cover; }
+body {font-family: "Source Code Pro", Consolas, monaco, monospace; line-height: 160%; font-size: 16px;  margin: 0; background-image: url(/assets/images/background_004.png); background-size: cover; background: none;}
 path.link {
   fill: none;
   stroke-width: 2px;
 }
 .node:not(:hover) .nodetext {
-  display: none;
+  /*display: none;*/
+  visibility: hidden;
+  opacity: 0.6;
 }
+
+.node:hover {
+	cursor: pointer;
+}
+
+.textRect {
+	opacity: 0;
+}
+
+.node:hover .textRect {
+	opacity: 0.5;
+}
+
 h1 { font-size: 36px; margin: 10px 0; text-transform: uppercase; font-weight: normal;}
 h2, h3 { font-size: 18px; margin: 5px 0 ; font-weight: normal;}
 header {padding: 20px; position: absolute; top: 0; left: 0;}

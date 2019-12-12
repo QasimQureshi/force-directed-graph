@@ -101,13 +101,11 @@ function update() {
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
-          // Node click handler qwer
+          // Node click handler
           .on( 'click', function (d) {
             debugger;
             clickedNode = d;
             isFocusLocked = true;
-            // Opening the node's link in a new page
-            // window.location.href = d.link.url;
             
             d3.select( this )
               .transition()
@@ -137,13 +135,43 @@ function update() {
               .attr("width", 50);
           });
 
-  // Append hero name on roll over next to the node as well
+  // Appending details on roll over next to the node as well
   nodeEnter.append("text")
       .attr("class", "nodetext")
+      .on( 'click', linkClickHandler)
+      .attr('text-anchor', 'middle')
       .attr("x", x_browser)
       .attr("y", y_browser +15)
       .attr("fill", tcBlack)
-      .text(function(d) { return d.title; });
+      .text(function(d) { return d.title; })
+      .call(getBB);
+
+      // var textNode = node.filter(function(d) {debugger;return (!d.image)});
+      // debugger;
+
+      d3.selectAll('g.node')
+      .insert('rect', 'text')
+      .attr('class', 'textRect')
+      .attr('width', function(d){ return d.bbox.width + 10 })
+      .attr('height', function(d){ return d.bbox.height + 5 })
+      .attr('x', function(d){ return d.bbox.x - 5})
+      .attr('y', function(d){return d.bbox.y - 2})
+      .style('fill', '#ffffb9')
+      .style('stroke', '#ccc')
+      .on( 'click', linkClickHandler);
+
+
+  // Opens the URL
+  function linkClickHandler(d) {
+    window.location = d.link.url;
+  }
+
+
+  function getBB(selection){
+    selection.each(function(d){
+      d.bbox = this.getBBox();
+    })
+  }
  
  
   // Exit any old nodes.
@@ -155,7 +183,7 @@ function update() {
   node = vis.selectAll("g.node");
  
 
-// The basic enterFrame function asdf
+// The basic enterFrame function
 function tick() {
 
   // if(!isFocusLocked)
@@ -181,7 +209,7 @@ function tick() {
   // }
   
   }
-}// Containing block ends
+}// Update function ends
 
  
 /**
@@ -206,7 +234,7 @@ function click(d) {
   //   d._children = null;
   // }
  
-  update();
+  // update();
 }
  
  
