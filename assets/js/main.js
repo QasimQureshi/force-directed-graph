@@ -3,19 +3,21 @@
   var tcBlack = "#808080";
 
 // rest of vars
-var w = 960,
-    h = 800,
+var w = innerWidth,
+    h = innerHeight,
     maxNodeSize = 50,
     x_browser = 20,
     y_browser = 25,
     isFocusLocked = false,  // Set to true when we're moving a node to the center & selecting it
     clickedNode, // Points to the node that was clicked
-    root;
+    root,
+    path,    // All the paths connecting nodes
+    node;    // Array of all nodes
  
 var vis; // points to our container element
 var force = d3.layout.force();  // D3's force layoud
 
-vis = d3.select("#vis").append("svg").attr("width", w).attr("height", h);
+vis = d3.select("#vis").append("svg").attr("width", innerWidth).attr("height", innerHeight);
 
 d3.json("assets/js/data-v2.json", function(json) { 
 // d3.json("assets/js/marvel.json", function(json) {
@@ -36,6 +38,18 @@ d3.json("assets/js/data-v2.json", function(json) {
  
   update();
 });
+
+var aspect = innerWidth / innerHeight,
+    chart = d3.select('#vis > svg');
+d3.select(window)
+  .on("resize", function() {
+    console.log('resize is called');
+    var targetWidth = chart.node().getBoundingClientRect().width;
+    chart.attr("width", targetWidth);
+    chart.attr("height", targetWidth / aspect);
+    w = innerWidth,
+    h = innerHeight;
+  });
  
  
 /**
@@ -58,7 +72,7 @@ function update() {
     .on("tick", tick)
         .start();
  
-   var path = vis.selectAll("path.link")
+   path = vis.selectAll("path.link")
       .data(links, function(d) { return d.target.id; });
  
     path.enter().insert("svg:path")
@@ -71,7 +85,7 @@ function update() {
  
  
   // Update the nodes…
-  var node = vis.selectAll("g.node")
+  node = vis.selectAll("g.node")
       .data(nodes, function(d) { return d.id; });
  
  
@@ -103,14 +117,15 @@ function update() {
   var setEvents = images
           // Node click handler
           .on( 'click', function (d) {
-            debugger;
-            clickedNode = d;
-            isFocusLocked = true;
             
-            d3.select( this )
-              .transition()
-              .attr("x", function(d) { return w / 2; })
-              .attr("y", function(d) { return h / 2;})
+          clickedNode = d;
+          isFocusLocked = true;
+          
+          // Moving the node to the center  
+          d3.select( this.closest('.node') )
+              // .transition()
+              // .attr("x", function(d) { debugger; return (- window.innerWidth / 2) + this.getBBox().width })
+              // .attr("y", function(d) { return h / 2;})
               // d3.select("h1").html(d.hero); 
               // d3.select("h2").html(d.name); 
               // d3.select("h3").html ("Take me to " + "<a href='" + d.link + "' >"  + d.hero + " web page ⇢"+ "</a>" ); 
@@ -120,10 +135,10 @@ function update() {
             // select element in current context
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -60;})
-              .attr("y", function(d) { return -60;})
-              .attr("height", 100)
-              .attr("width", 100);
+              .attr("x", function(d) { return -35;})
+              .attr("y", function(d) { return -35;})
+              .attr("height", 70)
+              .attr("width", 70);
           })
           // set back
           .on( 'mouseleave', function() {
@@ -149,7 +164,7 @@ function update() {
       // var textNode = node.filter(function(d) {debugger;return (!d.image)});
       // debugger;
 
-      d3.selectAll('g.node')
+  d3.selectAll('g.node')
       .insert('rect', 'text')
       .attr('class', 'textRect')
       .attr('width', function(d){ return d.bbox.width + 10 })
@@ -166,7 +181,7 @@ function update() {
     window.location = d.link.url;
   }
 
-
+  // Returns a bounding box - used to draw rectangles behind text labels, when a node is hovered upon
   function getBB(selection){
     selection.each(function(d){
       d.bbox = this.getBBox();
@@ -181,7 +196,81 @@ function update() {
   // Re-select for update.
   path = vis.selectAll("path.link");
   node = vis.selectAll("g.node");
+
+  // Node click handler asdf
+  node.on('click', function(d){
+    
+    var targetX = w / 2,
+        targetY = h / 2,
+        divisor = 16,
+        dx,
+        dy;
+
+    function step(timestamp){
+      console.log('step called');
+
+      dx = targetX - d.x,
+      dy = targetY - d.y;
+      d.x += dx / divisor;
+      d.y += dy / divisor;
+      d.px = d.x;
+      d.py = d.y;
+      tick();
+      debugger;
+      if(Math.abs(dx) > 2 && Math.abs(dy) > 2)
+      {
+        window.requestAnimationFrame(step);
+      }else{
+        // Animation complete
+        d.x = targetX;
+        d.y = targetY;
+
+      }
+      
+    }
+
+    window.requestAnimationFrame(step);
+
+    // node.attr("link", function(na){
+
+    //   debugger;
+    // })
+    // d.x = w / 2, 
+    // d.y = h / 2,
+    // d.px = d.x,
+    // d.py = d.y,
+    // d.fixed = true;
+    // tick();
+
+    // debugger;
+    // d3.select(this)
+    //   .transition()
+    //   .attr('x', function(d){ debugger; return ( w / 2)})
+    //   .attr('y', function(d){ return ( h / 2)})
+    //   .attr('px', function(d){ debugger; return ( w / 2)})
+    //   .attr('py', function(d){ return ( h / 2)})
+
+    // d.x = w / 2, 
+    // d.y = h / 2,
+    // d.px = d.x,
+    // d.py = d.y,
+    // d.fixed = true;
+    // tick();
+
+    // clickedNode = d;
+    //       isFocusLocked = true;
+          
+    //       // Moving the node to the center  
+    //       d3.select( this.closest('.node') )
+    //           // .transition()
+    //           // .attr("x", function(d) { debugger; return (- window.innerWidth / 2) + this.getBBox().width })
+    //           // .attr("y", function(d) { return h / 2;})
+
+  })
  
+
+  console.log('update is called');
+}// Update function ends
 
 // The basic enterFrame function
 function tick() {
@@ -203,24 +292,30 @@ function tick() {
       // debugger;
       return val;
     });
+
     node.attr("transform", nodeTransform);
   // }else{
   //   debugger;
   // }
   
-  }
-}// Update function ends
+}
 
  
 /**
  * Gives the coordinates of the border for keeping the nodes inside a frame
- * http://bl.ocks.org/mbostock/1129492
+ * http://bl.ocks.org/mbostock/1129492 asdf
  */ 
 function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/8 || 16), d.x));
+  if(!d.clicked)
+  {
+    d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/8 || 16), d.x));
     d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/8 || 16), d.y));
-    return "translate(" + d.x + "," + d.y + ")";
-   }
+    
+  }else{
+    debugger;
+  }
+  return "translate(" + d.x + "," + d.y + ")";
+}
  
 /**
  * Toggle children on click.

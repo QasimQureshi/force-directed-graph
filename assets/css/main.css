@@ -10,6 +10,14 @@ path.link {
   opacity: 0.6;
 }
 
+.nodetext:hover {
+	opacity: 1;
+}
+
+.nodetext:hover + .textRect {
+	opacity: 0.9 !important;
+}
+
 .node:hover {
 	cursor: pointer;
 }
@@ -20,6 +28,10 @@ path.link {
 
 .node:hover .textRect {
 	opacity: 0.5;
+}
+
+.textRect:hover {
+	opacity: 0.9 !important;
 }
 
 h1 { font-size: 36px; margin: 10px 0; text-transform: uppercase; font-weight: normal;}
