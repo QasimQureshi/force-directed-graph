@@ -14,6 +14,12 @@ var w = innerWidth,
     path,    // All the paths connecting nodes
     node,    // Array of all nodes
     nodeIDs; // Array of all IDs (used to determine which links to form)
+
+// Workaround to load images on GitHub pages
+  if( document.location.href.indexOf('github') !== -1 )
+  {
+    document.querySelector('body').style.backgroundImage = "url('https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/images/background_004.png')"
+  }
  
 var vis; // points to our container element
 var force = d3.layout.force();  // D3's force layoud
