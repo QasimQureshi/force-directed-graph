@@ -12,7 +12,8 @@ var w = innerWidth,
     clickedNode, // Points to the node that was clicked
     root,
     path,    // All the paths connecting nodes
-    node;    // Array of all nodes
+    node,    // Array of all nodes
+    nodeIDs; // Array of all IDs (used to determine which links to form)
  
 var vis; // points to our container element
 var force = d3.layout.force();  // D3's force layoud
@@ -124,7 +125,7 @@ function update() {
           // Moving the node to the center  
           d3.select( this.closest('.node') )
               // .transition()
-              // .attr("x", function(d) { debugger; return (- window.innerWidth / 2) + this.getBBox().width })
+              // .attr("x", function(d) {  return (- window.innerWidth / 2) + this.getBBox().width })
               // .attr("y", function(d) { return h / 2;})
               // d3.select("h1").html(d.hero); 
               // d3.select("h2").html(d.name); 
@@ -161,8 +162,8 @@ function update() {
       .text(function(d) { return d.title; })
       .call(getBB);
 
-      // var textNode = node.filter(function(d) {debugger;return (!d.image)});
-      // debugger;
+      // var textNode = node.filter(function(d) {return (!d.image)});
+      // 
 
   d3.selectAll('g.node')
       .insert('rect', 'text')
@@ -197,7 +198,7 @@ function update() {
   path = vis.selectAll("path.link");
   node = vis.selectAll("g.node");
 
-  // Node click handler asdf
+  // Node click handler
   node.on('click', function(d){
     
     var targetX = w / 2,
@@ -216,7 +217,8 @@ function update() {
       d.px = d.x;
       d.py = d.y;
       tick();
-      debugger;
+      
+      
       if(Math.abs(dx) > 2 && Math.abs(dy) > 2)
       {
         window.requestAnimationFrame(step);
@@ -224,7 +226,9 @@ function update() {
         // Animation complete
         d.x = targetX;
         d.y = targetY;
-
+        d.px = d.x;
+        d.py = d.y;
+        tick();
       }
       
     }
@@ -233,7 +237,6 @@ function update() {
 
     // node.attr("link", function(na){
 
-    //   debugger;
     // })
     // d.x = w / 2, 
     // d.y = h / 2,
@@ -242,12 +245,12 @@ function update() {
     // d.fixed = true;
     // tick();
 
-    // debugger;
+    // 
     // d3.select(this)
     //   .transition()
-    //   .attr('x', function(d){ debugger; return ( w / 2)})
+    //   .attr('x', function(d){  return ( w / 2)})
     //   .attr('y', function(d){ return ( h / 2)})
-    //   .attr('px', function(d){ debugger; return ( w / 2)})
+    //   .attr('px', function(d){  return ( w / 2)})
     //   .attr('py', function(d){ return ( h / 2)})
 
     // d.x = w / 2, 
@@ -263,7 +266,7 @@ function update() {
     //       // Moving the node to the center  
     //       d3.select( this.closest('.node') )
     //           // .transition()
-    //           // .attr("x", function(d) { debugger; return (- window.innerWidth / 2) + this.getBBox().width })
+    //           // .attr("x", function(d) {  return (- window.innerWidth / 2) + this.getBBox().width })
     //           // .attr("y", function(d) { return h / 2;})
 
   })
@@ -289,13 +292,13 @@ function tick() {
                 + "L" + d.target.x + "," 
                 + d.target.y;
 
-      // debugger;
+      // 
       return val;
     });
 
     node.attr("transform", nodeTransform);
   // }else{
-  //   debugger;
+  //   
   // }
   
 }
@@ -303,7 +306,7 @@ function tick() {
  
 /**
  * Gives the coordinates of the border for keeping the nodes inside a frame
- * http://bl.ocks.org/mbostock/1129492 asdf
+ * http://bl.ocks.org/mbostock/1129492
  */ 
 function nodeTransform(d) {
   if(!d.clicked)
@@ -312,7 +315,7 @@ function nodeTransform(d) {
     d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/8 || 16), d.y));
     
   }else{
-    debugger;
+    
   }
   return "translate(" + d.x + "," + d.y + ")";
 }
@@ -334,28 +337,29 @@ function click(d) {
  
  
 /**
- * Returns a list of all nodes under the root.
+ * Returns a list of all nodes under the root. asdf
  */ 
 function flatten(root) {
-  var nodes = root.record; 
-  // .map returns us categories of every node, and we're filtering to remove duplicates
-  var categories = nodes.map(node => node.category.id)
-                          .filter((value, index, self) => self.indexOf(value) === index),
-      categoryNodeArray = [];
-  for(var i = 0; i < categories.length; i++)
-  {
-    var category = {
-      categoryID: categories[i],
-      children: nodes.filter(function(node){
-        return node.category.id === categories[i]
-      })
-    }
-    if(category.children.length > 1)
-      categoryNodeArray.push(category);
+
+  var nodes = root.record,
+      nodeIDs = nodes.map(node => node.id);
+
+  // Using for instead of forEach, to access nodes & nodeIDs in the scope
+  for(var i = 0; i < nodes.length; i++){
+    let relatedNodeIDs = nodes[i].related.split(',').filter(id => nodeIDs.includes(id));
+    nodes[i].children = nodes.filter(node => relatedNodeIDs.includes(node.id));
   }
 
-  return nodes.concat(categoryNodeArray);;
-} 
+  return nodes;
+}
+
+
+// Returns IDs of nodes currently active
+function getActiveNodeIDs(){
+
+}
+
+
 
 // function flatten(root) {
 //   var nodes = []; 
@@ -370,6 +374,6 @@ function flatten(root) {
 //   }
  
 //   recurse(root);
-//   debugger;
+//   
 //   return nodes;
 // }
