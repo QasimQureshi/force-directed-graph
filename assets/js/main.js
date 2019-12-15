@@ -20,7 +20,7 @@ var force = d3.layout.force();  // D3's force layoud
 
 vis = d3.select("#vis").append("svg").attr("width", innerWidth).attr("height", innerHeight);
 
-d3.json("assets/js/data-v2.json", function(json) { 
+d3.json("assets/js/json/data-v2.json", function(json) { 
 // d3.json("assets/js/marvel.json", function(json) {
  
   root = json;
@@ -105,7 +105,7 @@ function update() {
    
   // Append images
   // Workaround to load images on GitHub pages
-  var imageBasePath = (document.location.href.indexOf('github') === -1 ? '/assets/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/doodles-100px/');
+  var imageBasePath = (document.location.href.indexOf('github') === -1 ? '/assets/images/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/images/doodles-100px/');
   var images = nodeEnter.append("svg:image")
         // ternary operator checks to ensure this node has an image
         .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
@@ -116,22 +116,6 @@ function update() {
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
-          // Node click handler
-          .on( 'click', function (d) {
-            
-          clickedNode = d;
-          isFocusLocked = true;
-          
-          // Moving the node to the center  
-          d3.select( this.closest('.node') )
-              // .transition()
-              // .attr("x", function(d) {  return (- window.innerWidth / 2) + this.getBBox().width })
-              // .attr("y", function(d) { return h / 2;})
-              // d3.select("h1").html(d.hero); 
-              // d3.select("h2").html(d.name); 
-              // d3.select("h3").html ("Take me to " + "<a href='" + d.link + "' >"  + d.hero + " web page ⇢"+ "</a>" ); 
-           })
-
           .on( 'mouseenter', function() {
             // select element in current context
             d3.select( this )
@@ -165,6 +149,7 @@ function update() {
       // var textNode = node.filter(function(d) {return (!d.image)});
       // 
 
+  // Adding a background behind link labels
   d3.selectAll('g.node')
       .insert('rect', 'text')
       .attr('class', 'textRect')
@@ -198,6 +183,10 @@ function update() {
   path = vis.selectAll("path.link");
   node = vis.selectAll("g.node");
 
+// Moving the node to the center  
+          // d3.select( this.closest('.node') )
+
+  node.on('dragenter', e => {console.log(`${e.target} is dragged`)});
   // Node click handler
   node.on('click', function(d){
     
