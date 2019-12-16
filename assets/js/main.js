@@ -11,8 +11,12 @@ var w = innerWidth,
     isFocusLocked = false,  // Set to true when we're moving a node to the center & selecting it
     clickedNode, // Points to the node that was clicked
     root,
+    maxNodeNum = Math.floor(20 + Math.random() * 30), // Number of nodes to render onscreen. Random between 20 - 50
     path,    // All the paths connecting nodes
-    node,    // Array of all nodes
+    nodesArr,// Array of all nodes
+    selectedNodes = [], // Randomly selected nodes
+    selectedLinks = [], // Link data for selectedNodes
+    node,    // Points to current SVG DOM selection, for D3 operations
     nodeIDs; // Array of all IDs (used to determine which links to form)
 
 // Workaround to load images on GitHub pages
@@ -26,10 +30,36 @@ var force = d3.layout.force();  // D3's force layoud
 
 vis = d3.select("#vis").append("svg").attr("width", innerWidth).attr("height", innerHeight);
 
-d3.json("assets/js/json/data-v2.json", function(json) { 
-// d3.json("assets/js/marvel.json", function(json) {
+d3.json("assets/js/json/graph.json", function(json) {
  
-  root = json;
+  
+
+  // Randomly selecting values from graph.json to render onscreen
+  nodesArr = json.nodes;
+
+  var nodesArrDup = nodesArr.map((x) => x), // Copying nodesArr to be able to randomly splice & remove nodes non-destructively
+      randomNodeIndex,
+      randomNode;
+
+  for (var i = 0; i < maxNodeNum; i++)
+  {
+    randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length);
+    var randomNode =  nodesArrDup.splice( randomNodeIndex, 1 );
+    selectedNodes.push( randomNode );
+
+    debugger;
+    var nodeLinks = json.links.reduce(function(element){
+      return element.id === randomNode.id;
+      debugger;
+    })
+    debugger;
+    
+
+    debugger;
+  }
+
+
+  root = selectedNodes;
   root.fixed = true;
   root.x = w / 2;
   root.y = h / 4;
@@ -336,7 +366,7 @@ function click(d) {
  */ 
 function flatten(root) {
 
-  var nodes = root.record,
+  var nodes = root,
       nodeIDs = nodes.map(node => node.id);
 
   // Using for instead of forEach, to access nodes & nodeIDs in the scope
