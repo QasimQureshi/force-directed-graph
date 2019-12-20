@@ -14,6 +14,7 @@ var w = innerWidth,
     maxNodeNum = Math.floor(20 + Math.random() * 30), // Number of nodes to render onscreen. Random between 20 - 50
     path,    // All the paths connecting nodes
     nodesArr,// Array of all nodes
+    linksArr,// Array of link data
     selectedNodes = [], // Randomly selected nodes
     selectedLinks = [], // Link data for selectedNodes
     node,    // Points to current SVG DOM selection, for D3 operations
@@ -30,32 +31,39 @@ var force = d3.layout.force();  // D3's force layoud
 
 vis = d3.select("#vis").append("svg").attr("width", innerWidth).attr("height", innerHeight);
 
+// returns an array of children nodes, for any nodeID
+function getNodeChildrenByID(nodeID){
+  var relatedLinkIDs = linksArr.filter(link => link.source === nodeID),
+      relatedLinksArr = [];
+  relatedLinkIDs.forEach(link => {
+    // Pushing the relatedNode to nodesArr
+    relatedLinksArr.push( nodesArr.filter( node => node.id === link.target)[0] );
+  })
+
+  return relatedLinksArr;
+}
+
 d3.json("assets/js/json/graph.json", function(json) {
- 
-  
 
   // Randomly selecting values from graph.json to render onscreen
   nodesArr = json.nodes;
+  linksArr = json.links;
 
   var nodesArrDup = nodesArr.map((x) => x), // Copying nodesArr to be able to randomly splice & remove nodes non-destructively
       randomNodeIndex,
       randomNode;
 
+  // Picking up random nodes, and populating their children
   for (var i = 0; i < maxNodeNum; i++)
   {
-    randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length);
-    var randomNode =  nodesArrDup.splice( randomNodeIndex, 1 );
+    randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
+    var randomNode =  nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
+
+    // Gets children nodes based on ID
+    randomNode.children = getNodeChildrenByID(randomNode.id);
+    debugger;
+
     selectedNodes.push( randomNode );
-
-    debugger;
-    var nodeLinks = json.links.reduce(function(element){
-      return element.id === randomNode.id;
-      debugger;
-    })
-    debugger;
-    
-
-    debugger;
   }
 
 
@@ -93,8 +101,8 @@ d3.select(window)
  *   
  */
 function update() {
-  var nodes = flatten(root);
-  var links = d3.layout.tree().links(nodes);
+  var nodes = selectedNodes; //flatten(root);
+  var links = d3.layout.tree().links(selectedNodes);
  
   
   // Restart the force layout.
@@ -362,7 +370,7 @@ function click(d) {
  
  
 /**
- * Returns a list of all nodes under the root. asdf
+ * Returns a list of all nodes under the root. 
  */ 
 function flatten(root) {
 
