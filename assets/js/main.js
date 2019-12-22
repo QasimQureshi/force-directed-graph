@@ -232,7 +232,7 @@ function update() {
 
   // Opens the URL
   function linkClickHandler(d) {
-    window.location = d.link.url;
+    // window.location = d.link.url;
   }
 
   // Returns a bounding box - used to draw rectangles behind text labels, when a node is hovered upon
