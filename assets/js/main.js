@@ -11,7 +11,7 @@ var w = innerWidth,
     isFocusLocked = false,  // Set to true when we're moving a node to the center & selecting it
     clickedNode, // Points to the node that was clicked
     root,
-    maxNodeNum = Math.floor(20 + Math.random() * 30), // Number of nodes to render onscreen. Random between 20 - 50
+    maxNodeNum = Math.floor(10 + Math.random() * 10), // Number of nodes to render onscreen. Random between 20 - 50
     path,    // All the paths connecting nodes
     nodesArr,// Array of all nodes
     linksArr,// Array of link data
@@ -30,7 +30,6 @@ var vis; // points to our container element
 var force = d3.layout.force();  // D3's force layoud
 
 vis = d3.select("#vis").append("svg").attr("width", innerWidth).attr("height", innerHeight);
-
 
 // returns an array of children nodes. If addToStage, the children nodes are also added to the stage tree
 function getNodeChildren(nodeName, addToStage){
@@ -276,7 +275,7 @@ function update() {
       tick();
       
       
-      if(Math.abs(dx) > 2 && Math.abs(dy) > 2)
+      if(Math.abs(dx) > 2 || Math.abs(dy) > 2)
       {
         window.requestAnimationFrame(step);
       }else{
@@ -285,20 +284,22 @@ function update() {
         d.y = targetY;
         d.px = d.x;
         d.py = d.y;
-        tick();
 
+        selectedNodes.find( node => node.name === d.name).children = getNodeChildren(d.name, true); // Adds any children elements that aren't on-stage rightnow
         
-        getNodeChildren(d.name, true); // Adds any children elements that aren't on-stage rightnow
-        // Build the path
-        var defs = vis.insert("svg:defs")
-          .data(["end"]);
- 
- 
-        defs.enter().append("svg:path")
-          .attr("d", "M0,-5L10,0L0,5");
-
-        update();
         debugger;
+        // Build the path
+        // var defs = vis.insert("svg:defs")
+        //   .data(["end"]);
+ 
+ 
+        // defs.enter().append("svg:path")
+        //   .attr("d", "M0,-5L10,0L0,5");
+
+
+        tick();
+        update();
+        // debugger;
       }
       
     }
