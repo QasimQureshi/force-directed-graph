@@ -31,13 +31,15 @@ var force = d3.layout.force();  // D3's force layoud
 
 vis = d3.select("#vis").append("svg").attr("width", innerWidth).attr("height", innerHeight);
 
+
 // returns an array of children nodes, for any nodeID
-function getNodeChildrenByID(nodeID){
-  var relatedLinkIDs = linksArr.filter(link => link.source === nodeID),
+function getNodeChildrenByName(nodeName){
+  var relatedLinkIDs = linksArr.filter( link => link.source === nodeName ),
       relatedLinksArr = [];
+
   relatedLinkIDs.forEach(link => {
-    // Pushing the relatedNode to nodesArr
-    relatedLinksArr.push( nodesArr.filter( node => node.id === link.target)[0] );
+    // Pushing the relatedNode to nodesArr 
+    relatedLinksArr.push( nodesArr.filter( node => node.name === link.target)[0] );
   })
 
   return relatedLinksArr;
@@ -49,6 +51,13 @@ d3.json("assets/js/json/graph.json", function(json) {
   nodesArr = json.nodes;
   linksArr = json.links;
 
+  // Testing nodeID fix (d3 requires numerical IDs?)
+  nodesArr = nodesArr.map( (node, index) => {
+    node.name = node.id; 
+    node.id = index;
+    return node;
+  })
+
   var nodesArrDup = nodesArr.map((x) => x), // Copying nodesArr to be able to randomly splice & remove nodes non-destructively
       randomNodeIndex,
       randomNode;
@@ -58,10 +67,10 @@ d3.json("assets/js/json/graph.json", function(json) {
   {
     randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
     var randomNode =  nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
-
+    // randomNode.id = i; // d3 seems to require all nodes ot have a unique ID
+    
     // Gets children nodes based on ID
-    randomNode.children = getNodeChildrenByID(randomNode.id);
-    debugger;
+    randomNode.children = getNodeChildrenByName(randomNode.name);
 
     selectedNodes.push( randomNode );
   }
