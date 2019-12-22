@@ -280,12 +280,25 @@ function update() {
       {
         window.requestAnimationFrame(step);
       }else{
-        // Animation complete
+        // Animation complete asdf
         d.x = targetX;
         d.y = targetY;
         d.px = d.x;
         d.py = d.y;
         tick();
+
+        
+        getNodeChildren(d.name, true); // Adds any children elements that aren't on-stage rightnow
+        // Build the path
+        var defs = vis.insert("svg:defs")
+          .data(["end"]);
+ 
+ 
+        defs.enter().append("svg:path")
+          .attr("d", "M0,-5L10,0L0,5");
+
+        update();
+        debugger;
       }
       
     }
