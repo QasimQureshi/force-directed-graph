@@ -275,7 +275,7 @@ function update() {
       tick();
       
       
-      if(Math.abs(dx) > 2 || Math.abs(dy) > 2)
+      if(Math.abs(dx) > 2 && Math.abs(dy) > 2)
       {
         window.requestAnimationFrame(step);
       }else{
@@ -289,16 +289,17 @@ function update() {
         
         debugger;
         // Build the path
-        // var defs = vis.insert("svg:defs")
-        //   .data(["end"]);
+        var defs = vis.insert("svg:defs")
+          .data(["end"]);
  
  
-        // defs.enter().append("svg:path")
-        //   .attr("d", "M0,-5L10,0L0,5");
+        defs.enter().append("svg:path")
+          .attr("d", "M0,-5L10,0L0,5");
 
 
-        tick();
+
         update();
+        
         // debugger;
       }
       
