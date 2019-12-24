@@ -31,46 +31,11 @@ var force = d3.layout.force();  // D3's force layoud
 
 vis = d3.select("#vis").append("svg").attr("width", innerWidth).attr("height", innerHeight);
 
-// returns an array of children nodes. If addToStage, the children nodes are also added to the stage tree
-function getNodeChildren(nodeName, addToStage){
-  var relatedLinkIDs = linksArr.filter( link => link.source === nodeName ),
-      relatedLinksArr = []; // populated with the actual nodes (not just link data)
-
-  // Pushing the relatedNode to nodesArr, if the targetNode also exists
-  // for(var i = 0; i < relatedLinkIDs.length; i++){
-  //   debugger;
-
-  // }
-  // For every link, checking if the child/target node also exists in selectedNodes[]
-  relatedLinkIDs.forEach(link => {
-    var childNode = nodesArr.filter( node => node.name === link.target)[0];
-    
-    // Pushing the relatedNode to nodesArr, if the childNode also exists in selectedNodes [] (is on-screen)
-    if (!!selectedNodes.find( node => node.name === link.target)){
-      relatedLinksArr.push( childNode );  // finding the node with the link.
-    }else if(addToStage){
-      // node does not exist in selectedNodes[], but we'll add it there
-      childNode.children = getNodeChildren(childNode.name);
-      selectedNodes.push(childNode);
-    }
-    
-  })
-
-  return relatedLinksArr;
-}
-
-d3.json("assets/js/json/graph.json", function(json) {
+d3.json("assets/js/json/data.json", function(json) {
 
   // Randomly selecting values from graph.json to render onscreen
-  nodesArr = json.nodes;
-  linksArr = json.links;
-
-  // Testing nodeID fix (d3 requires numerical IDs?)
-  nodesArr = nodesArr.map( (node, index) => {
-    node.name = node.id; 
-    node.id = index;
-    return node;
-  })
+  nodesArr = json.record;
+  // linksArr = json.links;
 
   var nodesArrDup = nodesArr.map((x) => x), // Copying nodesArr to be able to randomly splice & remove nodes non-destructively
       randomNodeIndex,
@@ -86,7 +51,7 @@ d3.json("assets/js/json/graph.json", function(json) {
   }
 
   // Adding children after all the random nodes have been selected, to prevent initial nodes from missing added nodes
-  selectedNodes.forEach( node => node.children = getNodeChildren(node.name));
+  selectedNodes.forEach( node => node.children = getNodeChildren(node.id));
 
 
   root = selectedNodes;
@@ -123,6 +88,7 @@ d3.select(window)
  *   
  */
 function update() {
+  debugger;
   var nodes = selectedNodes; //flatten(root);
   var links = d3.layout.tree().links(selectedNodes);
  
@@ -174,8 +140,8 @@ function update() {
   var imageBasePath = (document.location.href.indexOf('github') === -1 ? '/assets/images/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/images/doodles-100px/');
   var images = nodeEnter.append("svg:image")
         // ternary operator checks to ensure this node has an image
-        // .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
-        .attr("xlink:href", function(d) { return imageBasePath + "_029-loop.png"})
+        .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
+        // .attr("xlink:href", function(d) { return imageBasePath + "_029-loop.png"})
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
         .attr("height", 50)
@@ -275,7 +241,7 @@ function update() {
       tick();
       
       
-      if(Math.abs(dx) > 2 && Math.abs(dy) > 2)
+      if(Math.abs(dx) > 2 || Math.abs(dy) > 2)
       {
         window.requestAnimationFrame(step);
       }else{
@@ -289,17 +255,16 @@ function update() {
         
         debugger;
         // Build the path
-        var defs = vis.insert("svg:defs")
-          .data(["end"]);
+        // var defs = vis.insert("svg:defs")
+        //   .data(["end"]);
  
  
-        defs.enter().append("svg:path")
-          .attr("d", "M0,-5L10,0L0,5");
+        // defs.enter().append("svg:path")
+        //   .attr("d", "M0,-5L10,0L0,5");
 
 
-
+        tick();
         update();
-        
         // debugger;
       }
       
@@ -407,6 +372,30 @@ function click(d) {
   // update();
 }
  
+// returns an array of children nodes. If addToStage, all children nodes are also added to the stage tree
+function getNodeChildren(nodeID, addToStage){
+  
+  var relatedLinkIDs = nodesArr.find(node => node.id = nodeID).related; // IDs of nodes related to this one
+      relatedLinksArr = []; // populated with the actual nodes (not just IDs), this is what we return
+
+  // For every link, checking if the child/target node also exists in selectedNodes[]
+  relatedLinkIDs.forEach(childID => {
+    var childNode = nodesArr.filter( node => node.id === childID)[0];
+    
+    // Pushing the relatedNode to nodesArr, if the childNode also exists in selectedNodes [] (is on-screen)
+    // Checking if the current childNode already exists in selectedNodes[] (on-screen nodes to be rendered)
+    if (!!selectedNodes.find( node => node.id === childNode.id)){
+      relatedLinksArr.push( childNode );  // finding the node with the link.
+    }else if(addToStage){
+      // node does not exist in selectedNodes[], but we'll add it there
+      childNode.children = getNodeChildren(childNode.id);
+      selectedNodes.push(childNode);
+    }
+    
+  })
+
+  return relatedLinksArr;
+}
  
 /**
  * Returns a list of all nodes under the root. 

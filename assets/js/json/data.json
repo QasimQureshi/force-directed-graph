@@ -1,0 +1,4292 @@
+{
+  "count": 86,
+  "record": [
+    {
+      "id": 1,
+      "title": "Composition as Explanation",
+      "artist": "Gertrude Stein",
+      "year": "1970",
+      "link": {
+        "url": "http://academic.evergreen.edu/curricular/fopa/theatre/texts/stein.htm",
+        "target": "_top"
+      },
+      "category": {
+        "id": 2,
+        "nicename": "blogroll",
+        "text": "Blogroll"
+      },
+      "badge": {
+        "url": "/assets/images/badges/blogroll.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_042-84.png"
+      },
+      "related": [
+        73,
+        8,
+        9,
+        39,
+        64,
+        67,
+        78,
+        101,
+        118,
+        131,
+        158,
+        151
+      ],
+      "tags": [
+        "Historical-early vanguards",
+        "Remembering",
+        "Rotating"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "A Brief History of the State of Exception",
+      "artist": "Giorgio Agamben",
+      "year": "2005",
+      "link": {
+        "url": "http://www.press.uchicago.edu/Misc/Chicago/009254.html",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_047-loop.png"
+      },
+      "related": [
+        1,
+        9,
+        39,
+        64,
+        67,
+        78,
+        101,
+        118,
+        131,
+        158,
+        151
+      ],
+      "tags": [
+        "Remembering",
+        "Rotating"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "What is a Politics of the Rights of Man?",
+      "artist": "Etienne Balibar",
+      "year": "1994",
+      "link": {
+        "url": "http://www.generation-online.org/p/fpbalibar1.htm",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_052-square.png"
+      },
+      "related": [
+        1,
+        8,
+        39,
+        64,
+        67,
+        78,
+        101,
+        118,
+        131,
+        158,
+        151
+      ],
+      "tags": [
+        "Remembering",
+        "Rotating"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Declaration of Independence of the Democratic Republic of Vietnam",
+      "artist": "Ho Chi Minh",
+      "year": "1945",
+      "link": {
+        "url": "http://historymatters.gmu.edu/d/5139/",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_041-cylinder.png"
+      },
+      "related": [],
+      "tags": []
+    },
+    {
+      "id": 15,
+      "title": "The Politics of Aesthetics",
+      "artist": "Jacques Ranciere",
+      "year": "2004",
+      "link": {
+        "url": "http://www.16beavergroup.org/mtarchive/archives/001877.php",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_028-360.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191
+      ],
+      "tags": [
+        "Political and social revolution"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "The Revolution Will Not Be Televised",
+      "artist": "Gil Scott-Heron",
+      "year": "1970",
+      "link": {
+        "url": "http://www.gilscottheron.com/lyrevol.html",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_011-square.png"
+      },
+      "related": [
+        37,
+        43,
+        49,
+        103,
+        106,
+        123,
+        126,
+        181,
+        15,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        191,
+        52,
+        69,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "tags": [
+        "Audio",
+        "Political and social revolution",
+        "Reader",
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "The Gutai Manifesto",
+      "artist": "Jiro Yoshihara",
+      "year": "1956",
+      "link": {
+        "url": "http://www.ashiya-web.or.jp/museum/10us/103education/nyumon_us/manifest_us.htm",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_041-cylinder.png"
+      },
+      "related": [
+        15,
+        16,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191,
+        52,
+        69,
+        103,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "tags": [
+        "Political and social revolution",
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Human Rights and its Discontents",
+      "artist": "Slavoj Zizek",
+      "year": "1999",
+      "link": {
+        "url": "http://www.egs.edu/faculty/zizek/zizek-human-rights-and-its-discontents.html",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_005-pivot.png"
+      },
+      "related": [
+        15,
+        16,
+        17,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191,
+        52,
+        69,
+        103,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "tags": [
+        "Political and social revolution",
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Too Much Democracy?",
+      "artist": "Slavoj Zizek",
+      "year": "2003",
+      "link": {
+        "url": "http://www.makeworlds.org/node/159",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_041-cylinder.png"
+      },
+      "related": [
+        15,
+        16,
+        17,
+        18,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191
+      ],
+      "tags": [
+        "Political and social revolution"
+      ]
+    },
+    {
+      "id": 35,
+      "title": "1001 nights cast",
+      "artist": "Barbara Campbell",
+      "link": {
+        "url": "http://www.1001.net.au",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_043-inout.png"
+      },
+      "related": [
+        41,
+        52,
+        85,
+        167,
+        168,
+        102,
+        105,
+        108,
+        125,
+        127,
+        131,
+        147,
+        67,
+        124
+      ],
+      "tags": [
+        "Existing works",
+        "Live",
+        "Performance",
+        "Video"
+      ]
+    },
+    {
+      "id": 37,
+      "title": "UBU",
+      "link": {
+        "url": "http://www.ubu.com/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_028-360.png"
+      },
+      "related": [
+        43,
+        85,
+        88,
+        127,
+        16,
+        49,
+        103,
+        106,
+        123,
+        126,
+        181
+      ],
+      "tags": [
+        "Archive",
+        "Audio"
+      ]
+    },
+    {
+      "id": 38,
+      "title": "Wikipedia",
+      "link": {
+        "url": "http://www.wikipedia.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_028-360.png"
+      },
+      "related": [
+        47,
+        87,
+        88,
+        97,
+        107
+      ],
+      "tags": [
+        "Research"
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Cybertribe",
+      "artist": "Jenny Fraser",
+      "link": {
+        "url": "http://www.fineartforum.org/Gallery/cybertribe/other_apt/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_004-wheel.png"
+      },
+      "related": [
+        40,
+        46,
+        47,
+        84,
+        85,
+        86,
+        87,
+        94,
+        98,
+        103,
+        108,
+        109,
+        1,
+        8,
+        9,
+        64,
+        67,
+        78,
+        101,
+        118,
+        131,
+        158,
+        70,
+        110,
+        147
+      ],
+      "tags": [
+        "Collective",
+        "Remembering",
+        "Rewinding"
+      ]
+    },
+    {
+      "id": 40,
+      "title": "16 Beaver Group",
+      "link": {
+        "url": "http://www.16beavergroup.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_008-circle.png"
+      },
+      "related": [
+        39,
+        46,
+        47,
+        84,
+        85,
+        86,
+        87,
+        94,
+        98,
+        103,
+        108,
+        109,
+        64,
+        67,
+        68,
+        105,
+        106,
+        124,
+        127,
+        151,
+        173,
+        174
+      ],
+      "tags": [
+        "Collective",
+        "Space"
+      ]
+    },
+    {
+      "id": 41,
+      "title": "Tunnel People",
+      "artist": "Dora Garcia",
+      "link": {
+        "url": "http://www.doragarcia.net/tunnelpeople/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_047-loop.png"
+      },
+      "related": [
+        64,
+        67,
+        93,
+        97,
+        35,
+        52,
+        85,
+        167,
+        168,
+        69,
+        102,
+        107,
+        108,
+        109,
+        124,
+        125,
+        151
+      ],
+      "tags": [
+        "Artist",
+        "Existing works",
+        "Surveillance"
+      ]
+    },
+    {
+      "id": 43,
+      "title": "My Own Private Alexandria",
+      "artist": "National Philistine: Paul Chan",
+      "link": {
+        "url": "http://www.nationalphilistine.com/alexandria/index.html",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_051-project.png"
+      },
+      "related": [
+        37,
+        85,
+        88,
+        127,
+        16,
+        49,
+        103,
+        106,
+        123,
+        126,
+        181
+      ],
+      "tags": [
+        "Archive",
+        "Audio"
+      ]
+    },
+    {
+      "id": 45,
+      "title": "Sarai.net",
+      "link": {
+        "url": "http://www.sarai.net/practices/media-forms/ectropy-index/ectropy-index",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_045-wheel.png"
+      },
+      "related": [
+        64,
+        107,
+        147,
+        169
+      ],
+      "tags": [
+        "Institution"
+      ]
+    },
+    {
+      "id": 46,
+      "title": "Platform Artists Group",
+      "link": {
+        "url": "http://www.platform.org.au/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_019-square.png"
+      },
+      "related": [
+        39,
+        40,
+        47,
+        84,
+        85,
+        86,
+        87,
+        94,
+        98,
+        103,
+        108,
+        109
+      ],
+      "tags": [
+        "Collective"
+      ]
+    },
+    {
+      "id": 47,
+      "title": "Stalker",
+      "link": {
+        "url": "http://www.stalkerlab.it/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_011-square.png"
+      },
+      "related": [
+        39,
+        40,
+        46,
+        84,
+        85,
+        86,
+        87,
+        94,
+        98,
+        103,
+        108,
+        109,
+        38,
+        88,
+        97,
+        107
+      ],
+      "tags": [
+        "Collective",
+        "Research"
+      ]
+    },
+    {
+      "id": 48,
+      "title": "Gruppo A12",
+      "link": {
+        "url": "http://www.gruppoa12.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_033-inout.png"
+      },
+      "related": [],
+      "tags": []
+    },
+    {
+      "id": 49,
+      "title": "Radio Arte Mobile",
+      "link": {
+        "url": "http://www.radioartemobile.it/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_032-array.png"
+      },
+      "related": [
+        16,
+        37,
+        43,
+        103,
+        106,
+        123,
+        126,
+        181
+      ],
+      "tags": [
+        "Audio",
+        "Radio"
+      ]
+    },
+    {
+      "id": 50,
+      "title": "Rain Artists' Initiatives Network",
+      "link": {
+        "url": "http://www.r-a-i-n.net/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_024-armiture.png"
+      },
+      "related": [],
+      "tags": []
+    },
+    {
+      "id": 51,
+      "title": "Ultra-Red Collective",
+      "link": {
+        "url": "http://www.ultrared.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_013-oval.png"
+      },
+      "related": [],
+      "tags": []
+    },
+    {
+      "id": 52,
+      "title": "Second Life Liberation Army",
+      "link": {
+        "url": "http://secondlla.googlepages.com/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_014-circle.png"
+      },
+      "related": [
+        35,
+        41,
+        85,
+        167,
+        168,
+        16,
+        17,
+        18,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        81,
+        88,
+        109,
+        124,
+        125
+      ],
+      "tags": [
+        "Existing works",
+        "Revolutionary",
+        "Virtuality"
+      ]
+    },
+    {
+      "id": 53,
+      "title": "Nomads+Residents",
+      "link": {
+        "url": "http://www.nomadsresidents.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_052-square.png"
+      },
+      "related": [],
+      "tags": []
+    },
+    {
+      "id": 64,
+      "title": "Loud Silence",
+      "artist": "Anawana Haloba",
+      "year": "2005 - 2007",
+      "link": {
+        "url": "/record/video/64",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_017-set.png"
+      },
+      "related": [
+        41,
+        67,
+        93,
+        97,
+        70,
+        78,
+        94,
+        45,
+        107,
+        147,
+        169,
+        1,
+        8,
+        9,
+        39,
+        101,
+        118,
+        131,
+        158,
+        106,
+        110,
+        151,
+        40,
+        68,
+        84,
+        105,
+        124,
+        127,
+        173,
+        174
+      ],
+      "tags": [
+        "Artist",
+        "Flowing",
+        "Institution",
+        "Remembering",
+        "Slowing down",
+        "Space"
+      ]
+    },
+    {
+      "id": 67,
+      "title": "Falta-me Espaço (Lack of Space)",
+      "artist": "Pedro Barateiro",
+      "year": "2007",
+      "link": {
+        "url": "/record/video/67",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_031-wheel.png"
+      },
+      "related": [
+        41,
+        64,
+        93,
+        97,
+        1,
+        8,
+        9,
+        39,
+        78,
+        101,
+        118,
+        131,
+        158,
+        68,
+        151,
+        40,
+        84,
+        105,
+        106,
+        124,
+        127,
+        173,
+        174,
+        35
+      ],
+      "tags": [
+        "Artist",
+        "Remembering",
+        "Revolving",
+        "Space",
+        "Video"
+      ]
+    },
+    {
+      "id": 68,
+      "title": "History of Architecture",
+      "artist": "Francis Alÿs",
+      "year": "1986",
+      "link": {
+        "url": "/record/reader/68",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_013-oval.png"
+      },
+      "related": [
+        151,
+        191,
+        67,
+        78,
+        40,
+        64,
+        84,
+        105,
+        106,
+        124,
+        127,
+        173,
+        174
+      ],
+      "tags": [
+        "Mirror",
+        "Revolving",
+        "Space"
+      ]
+    },
+    {
+      "id": 69,
+      "title": "Empire",
+      "artist": "Michael Hardt and Antonio Negri",
+      "year": "2000",
+      "link": {
+        "url": "/record/reader/69",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_050-incircle.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        41,
+        102,
+        107,
+        108,
+        109,
+        124,
+        125,
+        151,
+        158,
+        81,
+        88
+      ],
+      "tags": [
+        "Revolutionary",
+        "Surveillance",
+        "Turning upside down",
+        "Virtuality"
+      ]
+    },
+    {
+      "id": 70,
+      "title": "Becomings: Explorations in Time, Memory and Futures",
+      "artist": "Elizabeth A. Grosz",
+      "year": "1999",
+      "link": {
+        "url": "/record/reader/70",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_041-cylinder.png"
+      },
+      "related": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        39,
+        64,
+        71,
+        72,
+        73,
+        78,
+        84,
+        85,
+        87,
+        88,
+        89,
+        93,
+        94,
+        96,
+        97,
+        98,
+        101,
+        102,
+        103,
+        105,
+        106,
+        107,
+        108,
+        110,
+        118,
+        123,
+        126,
+        127,
+        131,
+        147,
+        158,
+        167,
+        168,
+        169,
+        173,
+        181,
+        189,
+        191
+      ],
+      "tags": [
+        "Destroying and breaking",
+        "Flowing",
+        "Historical 1960s and 1970s",
+        "Inverting",
+        "Mirroring",
+        "New work",
+        "Political and social revolution",
+        "Recycling",
+        "Repeating",
+        "Rewinding",
+        "Turning inside-out"
+      ]
+    },
+    {
+      "id": 71,
+      "title": "Two Regimes of Madness: Texts and Interviews, 1975-1995",
+      "artist": "Gilles Deleuze",
+      "year": "2006",
+      "link": {
+        "url": "/record/reader/71",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_027-spiral.png"
+      },
+      "related": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191,
+        52,
+        69,
+        103,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "tags": [
+        "Political and social revolution",
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 72,
+      "title": "Revolt, She Said: What's Left of 1968?",
+      "artist": "Julia Kristeva",
+      "year": "2002",
+      "link": {
+        "url": "/record/reader/72",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_019-square.png"
+      },
+      "related": [
+        70,
+        168,
+        15,
+        16,
+        17,
+        18,
+        19,
+        71,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191,
+        52,
+        69,
+        103,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "tags": [
+        "Historical 1960s and 1970s",
+        "Political and social revolution",
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 73,
+      "title": "Revolt, She Said: Politics and Psychoanalysis",
+      "artist": "Julia Kristeva",
+      "year": "2002",
+      "link": {
+        "url": "/record/reader/73",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_029-loop.png"
+      },
+      "related": [
+        70,
+        87,
+        103,
+        118,
+        126,
+        168,
+        173,
+        1,
+        15,
+        16,
+        17,
+        18,
+        19,
+        71,
+        72,
+        84,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191,
+        52,
+        69,
+        169,
+        170,
+        171,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "tags": [
+        "Destroying and breaking",
+        "Historical-early vanguards",
+        "Political and social revolution",
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 78,
+      "title": "Marathon Line/Federation Parade",
+      "artist": "Shaun Gladwell",
+      "year": "2001",
+      "link": {
+        "url": "/record/video/78",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_017-set.png"
+      },
+      "related": [
+        94,
+        106,
+        118,
+        125,
+        147,
+        64,
+        70,
+        1,
+        8,
+        9,
+        39,
+        67,
+        101,
+        131,
+        158,
+        85,
+        88,
+        97,
+        108,
+        110,
+        126,
+        167,
+        189,
+        68,
+        151
+      ],
+      "tags": [
+        "Encountering",
+        "Flowing",
+        "Remembering",
+        "Repeating",
+        "Revolving",
+        "Slowing down"
+      ]
+    },
+    {
+      "id": 81,
+      "title": "AHA",
+      "link": {
+        "url": "http://www.ecn.org",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_033-inout.png"
+      },
+      "related": [
+        52,
+        69,
+        88,
+        105,
+        109,
+        124,
+        125
+      ],
+      "tags": [
+        "Virtuality"
+      ]
+    },
+    {
+      "id": 84,
+      "title": "Art Fag City",
+      "link": {
+        "url": "http://www.artfagcity.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_034-oval.png"
+      },
+      "related": [
+        39,
+        40,
+        46,
+        47,
+        85,
+        86,
+        87,
+        94,
+        98,
+        103,
+        108,
+        109,
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        89,
+        96,
+        97,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191,
+        64,
+        67,
+        68,
+        106,
+        124,
+        151,
+        173,
+        174
+      ],
+      "tags": [
+        "Collective",
+        "Political and social revolution",
+        "Space"
+      ]
+    },
+    {
+      "id": 85,
+      "title": "Artheat",
+      "link": {
+        "url": "http://artheat.blogspot.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_044-spiral.png"
+      },
+      "related": [
+        37,
+        43,
+        88,
+        127,
+        39,
+        40,
+        46,
+        47,
+        84,
+        86,
+        87,
+        94,
+        98,
+        103,
+        108,
+        109,
+        35,
+        41,
+        52,
+        167,
+        168,
+        70,
+        78,
+        97,
+        101,
+        110,
+        118,
+        126,
+        131,
+        147,
+        158,
+        189
+      ],
+      "tags": [
+        "Archive",
+        "Collective",
+        "Existing works",
+        "Repeating"
+      ]
+    },
+    {
+      "id": 86,
+      "title": "Ubermorgen",
+      "artist": "Ubermorgen.com: Lizvlx and Hans Bernhard",
+      "link": {
+        "url": "http://www.ubermorgen.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_028-360.png"
+      },
+      "related": [
+        39,
+        40,
+        46,
+        47,
+        84,
+        85,
+        87,
+        94,
+        98,
+        103,
+        108,
+        109
+      ],
+      "tags": [
+        "Collective"
+      ]
+    },
+    {
+      "id": 87,
+      "title": "Amazon Noir",
+      "artist": "Ubermorgen.com, Paolo Cirio and Alessandro Ludovico",
+      "link": {
+        "url": "http://www.amazon-noir.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_026-globe.png"
+      },
+      "related": [
+        39,
+        40,
+        46,
+        47,
+        84,
+        85,
+        86,
+        94,
+        98,
+        103,
+        108,
+        109,
+        70,
+        73,
+        118,
+        126,
+        168,
+        173,
+        93,
+        106,
+        169,
+        15,
+        16,
+        17,
+        18,
+        19,
+        71,
+        72,
+        89,
+        96,
+        97,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191,
+        102,
+        158,
+        167,
+        38,
+        88
+      ],
+      "tags": [
+        "Collective",
+        "Destroying and breaking",
+        "Inverting",
+        "Political and social revolution",
+        "Recycling",
+        "Research"
+      ]
+    },
+    {
+      "id": 88,
+      "title": "SimpleTEXT",
+      "artist": "Family Filter: Jonah Brucker-Cohen, Tim Redfern and Duncan Murphy",
+      "link": {
+        "url": "http://www.simpletext.info",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_038-icon.png"
+      },
+      "related": [
+        37,
+        43,
+        85,
+        127,
+        70,
+        78,
+        97,
+        101,
+        108,
+        110,
+        118,
+        126,
+        131,
+        147,
+        158,
+        167,
+        189,
+        38,
+        47,
+        87,
+        107,
+        52,
+        69,
+        81,
+        105,
+        109,
+        124,
+        125
+      ],
+      "tags": [
+        "Archive",
+        "Repeating",
+        "Research",
+        "Virtuality"
+      ]
+    },
+    {
+      "id": 89,
+      "title": "Bureau De Etudes",
+      "link": {
+        "url": "http://bureaudetudes.free.fr",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_001-inbox.png"
+      },
+      "related": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191
+      ],
+      "tags": [
+        "Political and social revolution"
+      ]
+    },
+    {
+      "id": 92,
+      "title": "Constant",
+      "link": {
+        "url": "http://www.constantvzw.com/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_046-wheel.png"
+      },
+      "related": [],
+      "tags": []
+    },
+    {
+      "id": 93,
+      "title": "www.bendierckx.com",
+      "artist": "Ben Dierckx",
+      "link": {
+        "url": "http://www.bendierckx.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_036-cluster.png"
+      },
+      "related": [
+        41,
+        64,
+        67,
+        97,
+        70,
+        87,
+        103,
+        106,
+        168,
+        169
+      ],
+      "tags": [
+        "Artist",
+        "Inverting"
+      ]
+    },
+    {
+      "id": 94,
+      "title": "Evolution de l'Art",
+      "link": {
+        "url": "http://www.evolutiondelart.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_004-wheel.png"
+      },
+      "related": [
+        39,
+        40,
+        46,
+        47,
+        84,
+        85,
+        86,
+        87,
+        98,
+        103,
+        108,
+        109,
+        78,
+        106,
+        118,
+        125,
+        147,
+        64,
+        70,
+        15,
+        16,
+        17,
+        18,
+        19,
+        71,
+        72,
+        73,
+        89,
+        96,
+        97,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191
+      ],
+      "tags": [
+        "Collective",
+        "Encountering",
+        "Flowing",
+        "Political and social revolution"
+      ]
+    },
+    {
+      "id": 95,
+      "title": "icommons.org",
+      "link": {
+        "url": "http://icommons.org",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_016-inout.png"
+      },
+      "related": [],
+      "tags": []
+    },
+    {
+      "id": 96,
+      "title": "SAarts Emerging",
+      "link": {
+        "url": "http://saartsemerging.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_024-armiture.png"
+      },
+      "related": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191
+      ],
+      "tags": [
+        "Political and social revolution"
+      ]
+    },
+    {
+      "id": 97,
+      "title": "the 'sham",
+      "artist": "Lucas Ihlein",
+      "link": {
+        "url": "http://thesham.info",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_013-oval.png"
+      },
+      "related": [
+        41,
+        64,
+        67,
+        93,
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191,
+        102,
+        103,
+        106,
+        126,
+        158,
+        167,
+        168,
+        78,
+        85,
+        88,
+        101,
+        108,
+        118,
+        131,
+        147,
+        189,
+        38,
+        47
+      ],
+      "tags": [
+        "Artist",
+        "Political and social revolution",
+        "Recycling",
+        "Repeating",
+        "Research"
+      ]
+    },
+    {
+      "id": 98,
+      "title": "Bilateral Kellerberrin",
+      "artist": "Lucas Ihlein",
+      "link": {
+        "url": "http://www.kellerberrin.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_013-oval.png"
+      },
+      "related": [
+        39,
+        40,
+        46,
+        47,
+        84,
+        85,
+        86,
+        87,
+        94,
+        103,
+        108,
+        109,
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        89,
+        96,
+        97,
+        105,
+        107,
+        110,
+        127,
+        181,
+        191,
+        52,
+        69,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "tags": [
+        "Collective",
+        "Political and social revolution",
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 99,
+      "title": "Its About Time",
+      "link": {
+        "url": "http://www.itsabouttime.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_013-oval.png"
+      },
+      "related": [],
+      "tags": []
+    },
+    {
+      "id": 101,
+      "title": "Inanimate Alice",
+      "artist": "Kate Pullinger & Chris Joseph",
+      "link": {
+        "url": "http://www.inanimatealice.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_010-square.png"
+      },
+      "related": [
+        1,
+        8,
+        9,
+        39,
+        64,
+        67,
+        78,
+        118,
+        131,
+        158,
+        70,
+        85,
+        88,
+        97,
+        108,
+        110,
+        126,
+        147,
+        167,
+        189
+      ],
+      "tags": [
+        "Remembering",
+        "Repeating"
+      ]
+    },
+    {
+      "id": 102,
+      "title": "The Human Browser",
+      "artist": "Christophe Bruno",
+      "link": {
+        "url": "http://www.iterature.com/human-browser",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_052-square.png"
+      },
+      "related": [
+        35,
+        105,
+        108,
+        125,
+        127,
+        131,
+        147,
+        70,
+        87,
+        97,
+        103,
+        106,
+        107,
+        126,
+        158,
+        167,
+        168,
+        41,
+        69,
+        109,
+        124,
+        151
+      ],
+      "tags": [
+        "Performance",
+        "Recycling",
+        "Surveillance"
+      ]
+    },
+    {
+      "id": 103,
+      "title": "Mikro Orchestra",
+      "artist": "Maria Klonowska-Prockow",
+      "link": {
+        "url": "http://www.mikroorchestra.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_030-30percent.png"
+      },
+      "related": [
+        16,
+        37,
+        43,
+        49,
+        106,
+        123,
+        126,
+        181,
+        39,
+        40,
+        46,
+        47,
+        84,
+        85,
+        86,
+        87,
+        94,
+        98,
+        108,
+        109,
+        70,
+        73,
+        118,
+        168,
+        173,
+        93,
+        169,
+        97,
+        102,
+        107,
+        158,
+        167,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        105,
+        170,
+        171,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "tags": [
+        "Audio",
+        "Collective",
+        "Destroying and breaking",
+        "Inverting",
+        "Recycling",
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 105,
+      "title": "Theorie M",
+      "artist": "Caroline Delieutraz & Albertine Meunier",
+      "link": {
+        "url": "http://www.theoriem.net/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_036-cluster.png"
+      },
+      "related": [
+        35,
+        102,
+        108,
+        125,
+        127,
+        131,
+        147,
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        107,
+        110,
+        181,
+        191,
+        52,
+        69,
+        103,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        40,
+        64,
+        67,
+        68,
+        106,
+        124,
+        151,
+        81,
+        88,
+        109
+      ],
+      "tags": [
+        "Performance",
+        "Political and social revolution",
+        "Revolutionary",
+        "Space",
+        "Virtuality"
+      ]
+    },
+    {
+      "id": 106,
+      "title": "The Analog Color Field Computer",
+      "artist": "Gregory Shakar",
+      "link": {
+        "url": "http://www.moodvector.com/acfc/acfcShare.htm",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_014-circle.png"
+      },
+      "related": [
+        16,
+        37,
+        43,
+        49,
+        103,
+        123,
+        126,
+        181,
+        78,
+        94,
+        118,
+        125,
+        147,
+        70,
+        87,
+        93,
+        168,
+        169,
+        108,
+        97,
+        102,
+        107,
+        158,
+        167,
+        64,
+        110,
+        151,
+        40,
+        67,
+        68,
+        84,
+        105,
+        124,
+        127,
+        173,
+        174
+      ],
+      "tags": [
+        "Audio",
+        "Encountering",
+        "Inverting",
+        "Mirroring",
+        "Recycling",
+        "Slowing down",
+        "Space"
+      ]
+    },
+    {
+      "id": 107,
+      "title": "Sensity",
+      "artist": "Stanza",
+      "link": {
+        "url": "http://www.stanza.co.uk/sensity/index.html",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_051-project.png"
+      },
+      "related": [
+        45,
+        64,
+        147,
+        169,
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        110,
+        127,
+        181,
+        191,
+        102,
+        103,
+        106,
+        126,
+        158,
+        167,
+        168,
+        38,
+        47,
+        88,
+        41,
+        69,
+        108,
+        109,
+        124,
+        125,
+        151
+      ],
+      "tags": [
+        "Institution",
+        "Political and social revolution",
+        "Recycling",
+        "Research",
+        "Surveillance",
+        "Turning upside down"
+      ]
+    },
+    {
+      "id": 108,
+      "title": "15 x 15",
+      "artist": "Richard Vickers",
+      "link": {
+        "url": "http://www.15x15.org",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_038-icon.png"
+      },
+      "related": [
+        39,
+        40,
+        46,
+        47,
+        84,
+        85,
+        86,
+        87,
+        94,
+        98,
+        103,
+        109,
+        70,
+        106,
+        126,
+        168,
+        35,
+        102,
+        105,
+        125,
+        127,
+        131,
+        147,
+        78,
+        88,
+        97,
+        101,
+        110,
+        118,
+        158,
+        167,
+        189,
+        41,
+        69,
+        107,
+        124,
+        151
+      ],
+      "tags": [
+        "Collective",
+        "Mirroring",
+        "Performance",
+        "Repeating",
+        "Surveillance"
+      ]
+    },
+    {
+      "id": 109,
+      "title": "Surreal Scania",
+      "artist": "Robert Willim & Anders Weberg",
+      "link": {
+        "url": "http://www.surrealscania.se/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_010-square.png"
+      },
+      "related": [
+        39,
+        40,
+        46,
+        47,
+        84,
+        85,
+        86,
+        87,
+        94,
+        98,
+        103,
+        108,
+        41,
+        69,
+        102,
+        107,
+        124,
+        125,
+        151,
+        52,
+        81,
+        88,
+        105
+      ],
+      "tags": [
+        "Collective",
+        "Surveillance",
+        "Virtuality"
+      ]
+    },
+    {
+      "id": 110,
+      "title": "News Ticker, 2007",
+      "artist": "Michael Rakowitz",
+      "link": {
+        "url": "http://www.onlinevenue.com.au/2008/artists/rakowitz/ticker/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_048-turn.png"
+      },
+      "related": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        127,
+        181,
+        191,
+        78,
+        85,
+        88,
+        101,
+        108,
+        118,
+        126,
+        131,
+        147,
+        158,
+        167,
+        189,
+        39,
+        64,
+        106,
+        151
+      ],
+      "tags": [
+        "Political and social revolution",
+        "Repeating",
+        "Rewinding",
+        "Slowing down"
+      ]
+    },
+    {
+      "id": 118,
+      "title": "Lamentations",
+      "artist": "Anawana Haloba",
+      "year": "2006-2007",
+      "link": {
+        "url": "/record/video/118",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_025-inbox.png"
+      },
+      "related": [
+        70,
+        73,
+        87,
+        103,
+        126,
+        168,
+        173,
+        78,
+        94,
+        106,
+        125,
+        147,
+        1,
+        8,
+        9,
+        39,
+        64,
+        67,
+        101,
+        131,
+        158,
+        85,
+        88,
+        97,
+        108,
+        110,
+        167,
+        189
+      ],
+      "tags": [
+        "Destroying and breaking",
+        "Encountering",
+        "Remembering",
+        "Repeating"
+      ]
+    },
+    {
+      "id": 123,
+      "title": "Tent, quartet, bows and elbows. In collaboration with T'ang Quartet",
+      "artist": "Ana Prvacki",
+      "year": "2007",
+      "link": {
+        "url": "/record/video/123",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_051-project.png"
+      },
+      "related": [
+        16,
+        37,
+        43,
+        49,
+        103,
+        106,
+        126,
+        181,
+        70,
+        169
+      ],
+      "tags": [
+        "Audio",
+        "Turning inside-out"
+      ]
+    },
+    {
+      "id": 124,
+      "title": "Eyes of Laura",
+      "artist": "Janet Cardiff",
+      "link": {
+        "url": "http://www.eyesoflaura.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_052-square.png"
+      },
+      "related": [
+        40,
+        64,
+        67,
+        68,
+        84,
+        105,
+        106,
+        127,
+        151,
+        173,
+        174,
+        41,
+        69,
+        102,
+        107,
+        108,
+        109,
+        125,
+        35,
+        52,
+        81,
+        88
+      ],
+      "tags": [
+        "Space",
+        "Surveillance",
+        "Video",
+        "Virtuality"
+      ]
+    },
+    {
+      "id": 125,
+      "title": "Urban Generation",
+      "artist": "Stanza",
+      "link": {
+        "url": "http://www.stanza.co.uk/urban_tapestry/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_043-inout.png"
+      },
+      "related": [
+        78,
+        94,
+        106,
+        118,
+        147,
+        35,
+        102,
+        105,
+        108,
+        127,
+        131,
+        41,
+        69,
+        107,
+        109,
+        124,
+        151,
+        158,
+        169,
+        52,
+        81,
+        88
+      ],
+      "tags": [
+        "Encountering",
+        "Performance",
+        "Surveillance",
+        "Turning upside down",
+        "Virtuality"
+      ]
+    },
+    {
+      "id": 126,
+      "title": "Shockbot Corejulio",
+      "artist": "5VOLTCORE",
+      "link": {
+        "url": "http://www.5voltcore.com/index.html?/content/roboter.html",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_041-cylinder.png"
+      },
+      "related": [
+        16,
+        37,
+        43,
+        49,
+        103,
+        106,
+        123,
+        181,
+        70,
+        73,
+        87,
+        118,
+        168,
+        173,
+        108,
+        97,
+        102,
+        107,
+        158,
+        167,
+        78,
+        85,
+        88,
+        101,
+        110,
+        131,
+        147,
+        189
+      ],
+      "tags": [
+        "Audio",
+        "Destroying and breaking",
+        "Mirroring",
+        "Recycling",
+        "Repeating"
+      ]
+    },
+    {
+      "id": 127,
+      "title": "SquatSpace",
+      "artist": "Lucas Ihlein",
+      "link": {
+        "url": "http://www.squatspace.com/redfern/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_017-set.png"
+      },
+      "related": [
+        37,
+        43,
+        85,
+        88,
+        35,
+        102,
+        105,
+        108,
+        125,
+        131,
+        147,
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        107,
+        110,
+        181,
+        191,
+        40,
+        64,
+        67,
+        68,
+        106,
+        124,
+        151,
+        173,
+        174
+      ],
+      "tags": [
+        "Archive",
+        "Performance",
+        "Political and social revolution",
+        "Space"
+      ]
+    },
+    {
+      "id": 131,
+      "title": "Normal",
+      "artist": "Tamy Ben-Tor",
+      "year": "2006",
+      "link": {
+        "url": "/record/video/131",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_028-360.png"
+      },
+      "related": [
+        35,
+        102,
+        105,
+        108,
+        125,
+        127,
+        147,
+        1,
+        8,
+        9,
+        39,
+        64,
+        67,
+        78,
+        101,
+        118,
+        158,
+        70,
+        85,
+        88,
+        97,
+        110,
+        126,
+        167,
+        189
+      ],
+      "tags": [
+        "Performance",
+        "Remembering",
+        "Repeating"
+      ]
+    },
+    {
+      "id": 147,
+      "title": "William Street",
+      "artist": "Stuart Ringholt",
+      "year": "2005",
+      "link": {
+        "url": "/record/video/147",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_037-cluster.png"
+      },
+      "related": [
+        78,
+        94,
+        106,
+        118,
+        125,
+        45,
+        64,
+        107,
+        169,
+        35,
+        102,
+        105,
+        108,
+        127,
+        131,
+        70,
+        85,
+        88,
+        97,
+        101,
+        110,
+        126,
+        158,
+        167,
+        189,
+        39,
+        151
+      ],
+      "tags": [
+        "Encountering",
+        "Institution",
+        "Performance",
+        "Repeating",
+        "Rewinding",
+        "Slowing down"
+      ]
+    },
+    {
+      "id": 151,
+      "title": "In A Station Of The Metro (online version)",
+      "artist": "Shaun Gladwell",
+      "year": "2006-07",
+      "link": {
+        "url": "/record/video/151",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_047-loop.png"
+      },
+      "related": [
+        68,
+        191,
+        67,
+        78,
+        1,
+        8,
+        9,
+        64,
+        106,
+        110,
+        147,
+        40,
+        84,
+        105,
+        124,
+        127,
+        173,
+        174,
+        41,
+        69,
+        102,
+        107,
+        108,
+        109,
+        125,
+        158,
+        169
+      ],
+      "tags": [
+        "Mirror",
+        "Revolving",
+        "Rotating",
+        "Slowing down",
+        "Space",
+        "Surveillance",
+        "Turning upside down"
+      ]
+    },
+    {
+      "id": 158,
+      "title": "ID Mind Map",
+      "artist": "Lia Perjovschi",
+      "year": "1999, 2005",
+      "link": {
+        "url": "/record/artwork-images/158",
+        "target": "_top"
+      },
+      "category": {
+        "id": 9,
+        "nicename": "artwork-images",
+        "text": "Artwork Image Gallery"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-images.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_026-globe.png"
+      },
+      "related": [
+        70,
+        87,
+        97,
+        102,
+        103,
+        106,
+        107,
+        126,
+        167,
+        168,
+        1,
+        8,
+        9,
+        39,
+        64,
+        67,
+        78,
+        101,
+        118,
+        131,
+        85,
+        88,
+        108,
+        110,
+        147,
+        189,
+        69,
+        125,
+        151,
+        169
+      ],
+      "tags": [
+        "Recycling",
+        "Remembering",
+        "Repeating",
+        "Rewinding",
+        "Turning upside down"
+      ]
+    },
+    {
+      "id": 167,
+      "title": "Repeating Lenin",
+      "artist": "Slavoj Zizek",
+      "year": "2001",
+      "link": {
+        "url": "http://www.lacan.com/replenin.htm",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_009-spiral.png"
+      },
+      "related": [
+        35,
+        41,
+        52,
+        85,
+        168,
+        70,
+        87,
+        97,
+        102,
+        103,
+        106,
+        107,
+        126,
+        158,
+        78,
+        88,
+        101,
+        108,
+        110,
+        118,
+        131,
+        147,
+        189
+      ],
+      "tags": [
+        "Existing works",
+        "Recycling",
+        "Repeating"
+      ]
+    },
+    {
+      "id": 168,
+      "title": "Systematically Altered Photograph: The Suburbs",
+      "artist": "Ian Burn",
+      "year": "1968",
+      "link": {
+        "url": "/record/reader/168",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_015-n.png"
+      },
+      "related": [
+        70,
+        73,
+        87,
+        103,
+        118,
+        126,
+        173,
+        35,
+        41,
+        52,
+        85,
+        167,
+        72,
+        93,
+        106,
+        169,
+        108,
+        97,
+        102,
+        107,
+        158
+      ],
+      "tags": [
+        "Destroying and breaking",
+        "Existing works",
+        "Historical 1960s and 1970s",
+        "Inverting",
+        "Mirroring",
+        "Recycling"
+      ]
+    },
+    {
+      "id": 169,
+      "title": "Empire",
+      "artist": "Michael Hardt and Antonio Negri",
+      "year": "2000",
+      "link": {
+        "url": "http://www.marxists.org/reference/subject/philosophy/works/it/negri.htm",
+        "target": "_blank"
+      },
+      "category": {
+        "id": 5,
+        "nicename": "reader",
+        "text": "Revolutionary Reader"
+      },
+      "badge": {
+        "url": "/assets/images/badges/reader.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_017-set.png"
+      },
+      "related": [
+        45,
+        64,
+        107,
+        147,
+        70,
+        87,
+        93,
+        103,
+        106,
+        168,
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        105,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        123,
+        125,
+        151,
+        158
+      ],
+      "tags": [
+        "Institution",
+        "Inverting",
+        "Revolutionary",
+        "Turning inside-out",
+        "Turning upside down"
+      ]
+    },
+    {
+      "id": 170,
+      "title": "www.marcelduchamp.net",
+      "link": {
+        "url": "http://www.marcelduchamp.net/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_034-oval.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "tags": [
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 171,
+      "title": "Project 304",
+      "link": {
+        "url": "http://www.project304.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_051-project.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "tags": [
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 172,
+      "title": "Multiplicity",
+      "link": {
+        "url": "http://www.multiplicity.it/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_003-bosarrow.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "tags": [
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 173,
+      "title": "Saburo\tMurakami",
+      "artist": "SaburoMurakami",
+      "link": {
+        "url": "http://www.youtube.com/watch?v=EWctXXGeJMA",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_034-oval.png"
+      },
+      "related": [
+        70,
+        73,
+        87,
+        103,
+        118,
+        126,
+        168,
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        98,
+        105,
+        169,
+        170,
+        171,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        40,
+        64,
+        67,
+        68,
+        84,
+        106,
+        124,
+        127,
+        151
+      ],
+      "tags": [
+        "Destroying and breaking",
+        "Revolutionary",
+        "Space"
+      ]
+    },
+    {
+      "id": 174,
+      "title": "Saburo Murakami",
+      "link": {
+        "url": "http://www.youtube.com/watch?v=SNqexv5mRvQ",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_033-inout.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        172,
+        173,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        40,
+        64,
+        67,
+        68,
+        84,
+        106,
+        124,
+        127,
+        151
+      ],
+      "tags": [
+        "Revolutionary",
+        "Space"
+      ]
+    },
+    {
+      "id": 175,
+      "title": "Nettime",
+      "link": {
+        "url": "http://www.nettime.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_018-cross.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "tags": [
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 176,
+      "title": "Rhizome",
+      "link": {
+        "url": "http://www.rhizome.org/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_016-inout.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "tags": [
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 177,
+      "title": "The Artists Village",
+      "link": {
+        "url": "http://tav.org.sg/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_031-wheel.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        178,
+        179,
+        180,
+        181
+      ],
+      "tags": [
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 178,
+      "title": "The Meatrix",
+      "link": {
+        "url": "http://www.themeatrix.com/inside/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_009-spiral.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        179,
+        180,
+        181
+      ],
+      "tags": [
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 179,
+      "title": "www.googlewhack.com",
+      "link": {
+        "url": "http://www.googlewhack.com",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_051-project.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        180,
+        181
+      ],
+      "tags": [
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 180,
+      "title": "www.neural.it",
+      "link": {
+        "url": "http://www.neural.it/",
+        "target": "_top"
+      },
+      "category": {
+        "id": 6,
+        "nicename": "link",
+        "text": "Contextual Link"
+      },
+      "badge": {
+        "url": "/assets/images/badges/link.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_011-square.png"
+      },
+      "related": [
+        16,
+        17,
+        18,
+        52,
+        69,
+        71,
+        72,
+        73,
+        98,
+        103,
+        105,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        181
+      ],
+      "tags": [
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 181,
+      "title": "Scheme 23A, 2007",
+      "artist": "Michael Rakowitz",
+      "link": {
+        "url": "http://www.onlinevenue.com.au/2008/artists/rakowitz/audio/scheme23a.html",
+        "target": "_top"
+      },
+      "category": {
+        "id": 8,
+        "nicename": "artwork-ext",
+        "text": "Artwork External"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-ext.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_001-inbox.png"
+      },
+      "related": [
+        16,
+        37,
+        43,
+        49,
+        103,
+        106,
+        123,
+        126,
+        15,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        191,
+        189,
+        52,
+        69,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "tags": [
+        "Audio",
+        "Political and social revolution",
+        "Reenact",
+        "Revolutionary"
+      ]
+    },
+    {
+      "id": 187,
+      "title": "About 20 minutes (intermission)",
+      "artist": "Steve Van den Bosch",
+      "year": "2004",
+      "link": {
+        "url": "/record/video/187",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_015-n.png"
+      },
+      "related": [],
+      "tags": []
+    },
+    {
+      "id": 189,
+      "title": "Old Man Going up and Down a Staircase",
+      "artist": "Vibeke Tandberg",
+      "year": "2003",
+      "link": {
+        "url": "/record/video/189",
+        "target": "_top"
+      },
+      "category": {
+        "id": 4,
+        "nicename": "video",
+        "text": "New Video"
+      },
+      "badge": {
+        "url": "/assets/images/badges/video.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_015-n.png"
+      },
+      "related": [
+        181,
+        70,
+        78,
+        85,
+        88,
+        97,
+        101,
+        108,
+        110,
+        118,
+        126,
+        131,
+        147,
+        158,
+        167
+      ],
+      "tags": [
+        "Reenact",
+        "Repeating"
+      ]
+    },
+    {
+      "id": 191,
+      "title": "Drawings",
+      "artist": "Dan Perjovschi",
+      "year": "2003-2007",
+      "link": {
+        "url": "/record/artwork-images/191",
+        "target": "_top"
+      },
+      "category": {
+        "id": 9,
+        "nicename": "artwork-images",
+        "text": "Artwork Image Gallery"
+      },
+      "badge": {
+        "url": "/assets/images/badges/artwork-images.png"
+      },
+      "image": {
+        "url": "/assets/images/doodles/_008-circle.png"
+      },
+      "related": [
+        68,
+        151,
+        15,
+        16,
+        17,
+        18,
+        19,
+        70,
+        71,
+        72,
+        73,
+        84,
+        87,
+        89,
+        94,
+        96,
+        97,
+        98,
+        105,
+        107,
+        110,
+        127,
+        181
+      ],
+      "tags": [
+        "Mirror",
+        "Political and social revolution"
+      ]
+    }
+  ]
+}
