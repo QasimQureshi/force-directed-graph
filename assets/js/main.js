@@ -35,6 +35,16 @@ d3.json("assets/js/json/data.json", function(json) {
 
   // Randomly selecting values from graph.json to render onscreen
   nodesArr = json.record;
+
+  // Bugfix for D3, as per https://stackoverflow.com/a/38913109/1290849
+  // Essentially, D3 requires 0-indexed nodes for links to work. the data this function recieves starts from 1, which throws the length of the array off
+  nodesArr.map( node => {
+    node.id = node.id - 1;
+
+    node.related = node.related.map( relatedNodeID => {
+      return relatedNodeID - 1;
+    })
+  })
   // linksArr = json.links;
 
   var nodesArrDup = nodesArr.map((x) => x), // Copying nodesArr to be able to randomly splice & remove nodes non-destructively
@@ -88,7 +98,7 @@ d3.select(window)
  *   
  */
 function update() {
-  debugger;
+
   var nodes = selectedNodes; //flatten(root);
   var links = d3.layout.tree().links(selectedNodes);
  
@@ -375,7 +385,7 @@ function click(d) {
 // returns an array of children nodes. If addToStage, all children nodes are also added to the stage tree
 function getNodeChildren(nodeID, addToStage){
   
-  var relatedLinkIDs = nodesArr.find(node => node.id = nodeID).related; // IDs of nodes related to this one
+  var relatedLinkIDs = nodesArr.find(node => node.id === nodeID).related; // IDs of nodes related to this one
       relatedLinksArr = []; // populated with the actual nodes (not just IDs), this is what we return
 
   // For every link, checking if the child/target node also exists in selectedNodes[]
