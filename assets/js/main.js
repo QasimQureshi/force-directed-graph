@@ -47,18 +47,23 @@ d3.json("assets/js/json/data.json", function(json) {
   })
   // linksArr = json.links;
 
-  var nodesArrDup = nodesArr.map((x) => x), // Copying nodesArr to be able to randomly splice & remove nodes non-destructively
+  // Copying nodesArr to be able to randomly splice & remove nodes non-destructively
+  var nodesArrDup = nodesArr.map((x) => x), 
       randomNodeIndex,
       randomNode;
 
   // Picking up random nodes, and populating their children
-  for (var i = 0; i < maxNodeNum; i++)
-  {
-    randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
-    var randomNode =  nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
-    // randomNode.id = i; // d3 seems to require all nodes ot have a unique ID
-    selectedNodes.push( randomNode );
-  }
+  // for (var i = 0; i < maxNodeNum; i++)
+  // {
+  //   randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
+  //   var randomNode =  nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
+  //   // randomNode.id = i; // d3 seems to require all nodes ot have a unique ID
+  //   selectedNodes.push( randomNode );
+  // }
+
+  // For debugging, picking the same 10 initial nodes everytime
+  selectedNodes = nodesArrDup.splice(0,10);
+
 
   // Adding children after all the random nodes have been selected, to prevent initial nodes from missing added nodes
   selectedNodes.forEach( node => node.children = getNodeChildren(node.id));
@@ -152,10 +157,10 @@ function update() {
         // ternary operator checks to ensure this node has an image
         .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
         // .attr("xlink:href", function(d) { return imageBasePath + "_029-loop.png"})
-        .attr("x", function(d) { return -25;})
-        .attr("y", function(d) { return -25;})
-        .attr("height", 50)
-        .attr("width", 50);
+        .attr("x", function(d) { return -30;})
+        .attr("y", function(d) { return -30;})
+        .attr("height", 60)
+        .attr("width", 60);
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
@@ -163,6 +168,7 @@ function update() {
             // select element in current context
             d3.select( this )
               .transition()
+              .duration(750)
               .attr("x", function(d) { return -35;})
               .attr("y", function(d) { return -35;})
               .attr("height", 70)
@@ -172,10 +178,11 @@ function update() {
           .on( 'mouseleave', function() {
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -25;})
-              .attr("y", function(d) { return -25;})
-              .attr("height", 50)
-              .attr("width", 50);
+              .duration(750)
+              .attr("x", function(d) { return -30;})
+              .attr("y", function(d) { return -30;})
+              .attr("height", 60)
+              .attr("width", 60);
           });
 
   // Appending details on roll over next to the node as well
@@ -230,9 +237,17 @@ function update() {
           // d3.select( this.closest('.node') )
 
   node.on('dragenter', e => {console.log(`${e.target} is dragged`)});
+  
   // Node click handler
   node.on('click', function(d){
     
+    //Adding node children. _True_ adds any children elements that aren't on-stage rightnow
+    selectedNodes.find( node => node.id === d.id).children = getNodeChildren(d.id, true); 
+    console.log(`clicked node is ${d.id}, children are`);
+    console.log(d.children);
+    update();
+
+    // Animating the node to the center
     var targetX = w / 2,
         targetY = h / 2,
         divisor = 16,
@@ -251,7 +266,7 @@ function update() {
       tick();
       
       
-      if(Math.abs(dx) > 2 || Math.abs(dy) > 2)
+      if(Math.abs(dx) > 5 || Math.abs(dy) > 5)
       {
         window.requestAnimationFrame(step);
       }else{
@@ -260,10 +275,7 @@ function update() {
         d.y = targetY;
         d.px = d.x;
         d.py = d.y;
-
-        selectedNodes.find( node => node.name === d.name).children = getNodeChildren(d.name, true); // Adds any children elements that aren't on-stage rightnow
         
-        debugger;
         // Build the path
         // var defs = vis.insert("svg:defs")
         //   .data(["end"]);
@@ -271,10 +283,6 @@ function update() {
  
         // defs.enter().append("svg:path")
         //   .attr("d", "M0,-5L10,0L0,5");
-
-
-        tick();
-        update();
         // debugger;
       }
       
@@ -396,8 +404,9 @@ function getNodeChildren(nodeID, addToStage){
     // Checking if the current childNode already exists in selectedNodes[] (on-screen nodes to be rendered)
     if (!!selectedNodes.find( node => node.id === childNode.id)){
       relatedLinksArr.push( childNode );  // finding the node with the link.
+
+    // node does not exist in selectedNodes[], but we'll add it there
     }else if(addToStage){
-      // node does not exist in selectedNodes[], but we'll add it there
       childNode.children = getNodeChildren(childNode.id);
       selectedNodes.push(childNode);
     }

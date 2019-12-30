@@ -23,7 +23,7 @@ path.link {
 }
 
 .textRect {
-	opacity: 0;
+	/*opacity: 0;*/
 }
 
 .node:hover .textRect {
