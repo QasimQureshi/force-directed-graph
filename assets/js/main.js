@@ -6,7 +6,8 @@
 var w = innerWidth,
     h = innerHeight,
     maxNodeSize = 50,
-    x_browser = 20,
+    maxNodesToAdd = 5, // The maximum number of children to add in one go
+    x_browser = 20, // SVG element's positioning
     y_browser = 25,
     isFocusLocked = false,  // Set to true when we're moving a node to the center & selecting it
     clickedNode, // Points to the node that was clicked
@@ -193,7 +194,7 @@ function update() {
       .attr("x", x_browser)
       .attr("y", y_browser +15)
       .attr("fill", tcBlack)
-      .text(function(d) { return d.name; })
+      .text(function(d) { return d.id; })
       .call(getBB);
 
       // var textNode = node.filter(function(d) {return (!d.image)});
@@ -238,11 +239,53 @@ function update() {
 
   node.on('dragenter', e => {console.log(`${e.target} is dragged`)});
   
-  // Node click handler
+  // Node click handler asdf
   node.on('click', function(d){
+
+    // Adding node children. 
+    var parentNodeObj = selectedNodes.find(node => node.id === d.id),
+        clickedNodesChildren = d.children,  // On-screen children of the clicked node (in selectedNodes[])
+        nodesArrAllChildren = nodesArr.find(node => node.id === d.id).related, //IDs of all children of the clicked node in nodesArr[]
+        nodesArrChildren = nodesArrAllChildren.filter( nodeID => { return !clickedNodesChildren.find( node => node.id === nodeID ) } ), // NodeIDs for children in nodesArrAllChildren[], that _aren't_ currently onscreen
+        childrenToAdd = [];
+
     
+
+    // This node has too many unadded children, we're plucking random children to add
+    if( nodesArrChildren.length > maxNodesToAdd)
+    {
+      // Randomly selecting child nodes, after shuffling nodesArrChildren[], explaination: https://stackoverflow.com/a/49479872/1290849
+      childrenToAdd = nodesArrChildren
+        .map(x => ({ x, r: Math.random() }))
+        .sort((a, b) => a.r - b.r)
+        .map(a => a.x)
+        .slice(0, maxNodesToAdd);
+    }else{
+      childrenToAdd = nodesArrChildren;
+    }
+
+    // Culling excessive nodes
+    if(selectedNodes.length + childrenToAdd.length > maxNodeNum)
+    {
+      for(var i = 0; i <= 5; i++)
+      {
+        let randomIndex = Math.floor(Math.random() * selectedNodes.length);
+
+        // Ensuring that we don't cull the parent node to which we're adding children, in the next step
+        if(selectedNodes[randomIndex].id !== d.id)
+        {
+          selectedNodes.splice(randomIndex, 1);
+        }
+      }
+    }
+
+    // Adding new nodes
+    childrenToAdd = childrenToAdd.map( nodeID => getNodeByID(nodeID)); //conterting nodeIDs to actual node objects
+    parentNodeObj.children = parentNodeObj.children.concat(childrenToAdd); // Adding nodes as children, of the parent object (used to render links)
+    selectedNodes = selectedNodes.concat(childrenToAdd);  // Adding nodes (used to render node elements)
+
     //Adding node children. _True_ adds any children elements that aren't on-stage rightnow
-    selectedNodes.find( node => node.id === d.id).children = getNodeChildren(d.id, true); 
+    // selectedNodes.find( node => node.id === d.id).children = getNodeChildren(d.id, true); 
     console.log(`clicked node is ${d.id}, children are`);
     console.log(d.children);
     update();
@@ -266,11 +309,11 @@ function update() {
       tick();
       
       
-      if(Math.abs(dx) > 5 || Math.abs(dy) > 5)
+      if(Math.abs(dx) > 10 || Math.abs(dy) > 10)
       {
         window.requestAnimationFrame(step);
       }else{
-        // Animation complete asdf
+        // Animation complete
         d.x = targetX;
         d.y = targetY;
         d.px = d.x;
@@ -398,7 +441,7 @@ function getNodeChildren(nodeID, addToStage){
 
   // For every link, checking if the child/target node also exists in selectedNodes[]
   relatedLinkIDs.forEach(childID => {
-    var childNode = nodesArr.filter( node => node.id === childID)[0];
+    var childNode = getNodeByID(childID);
     
     // Pushing the relatedNode to nodesArr, if the childNode also exists in selectedNodes [] (is on-screen)
     // Checking if the current childNode already exists in selectedNodes[] (on-screen nodes to be rendered)
@@ -410,10 +453,16 @@ function getNodeChildren(nodeID, addToStage){
       childNode.children = getNodeChildren(childNode.id);
       selectedNodes.push(childNode);
     }
-    
   })
 
   return relatedLinksArr;
+}
+
+// Returns a node object
+function getNodeByID(nodeID){
+  let node = nodesArr.filter( node => node.id === nodeID)[0];
+  node.children = [];
+  return node;
 }
  
 /**
