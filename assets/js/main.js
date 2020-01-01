@@ -1,10 +1,8 @@
-// some colour variables
-  // var tcBlack = "#130C0E";
-  var tcBlack = "#808080";
 
-// rest of vars
 var w = innerWidth,
     h = innerHeight,
+    tcBlack = "#808080",
+    vis, // points to our container element
     maxNodeSize = 50,
     maxNodesToAdd = 5, // The maximum number of children to add in one go
     x_browser = 20, // SVG element's positioning
@@ -19,56 +17,64 @@ var w = innerWidth,
     selectedNodes = [], // Randomly selected nodes
     selectedLinks = [], // Link data for selectedNodes
     node,    // Points to current SVG DOM selection, for D3 operations
-    nodeIDs; // Array of all IDs (used to determine which links to form)
+    nodeIDs, // Array of all IDs (used to determine which links to form)
+    force = d3.layout.force(),  // D3's force layoud
+    aspect = innerWidth / innerHeight,
+    chart = d3.select('#vis > svg');
+    
 
-// Workaround to load images on GitHub pages
-  if( document.location.href.indexOf('github') !== -1 )
-  {
-    document.querySelector('body').style.backgroundImage = "url('https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/images/background_004.png')"
-  }
+// Resizing the D3 root SVG, when the window's dimensions change
+d3.select(window).on("resize", function() {
+  console.log('resize is called');
+
+  var targetWidth = chart.node().getBoundingClientRect().width;
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+  w = innerWidth,
+  h = innerHeight;
+});
+
+// Workaround to load images hosted on GitHub pages
+if( document.location.href.indexOf('github') !== -1 )
+  document.querySelector('body').style.backgroundImage = "url('https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/images/background_004.png')";
  
-var vis; // points to our container element
-var force = d3.layout.force();  // D3's force layoud
 
 vis = d3.select("#vis").append("svg").attr("width", innerWidth).attr("height", innerHeight);
 
+// So it begins. Loading JSON to defend Helm's Deep
 d3.json("assets/js/json/data.json", function(json) {
 
-  // Randomly selecting values from graph.json to render onscreen
-  nodesArr = json.record;
+  nodesArr = json.record; // nodesArr[] holds _all_ nodes. We randomly select and render some
 
-  // Bugfix for D3, as per https://stackoverflow.com/a/38913109/1290849
+  // Bugfix for D3, making node IDs 0-indexed rather than 1, as per https://stackoverflow.com/a/38913109/1290849
   // Essentially, D3 requires 0-indexed nodes for links to work. the data this function recieves starts from 1, which throws the length of the array off
   nodesArr.map( node => {
     node.id = node.id - 1;
 
+    // Decrementing related-node IDs
     node.related = node.related.map( relatedNodeID => {
       return relatedNodeID - 1;
     })
   })
-  // linksArr = json.links;
 
-  // Copying nodesArr to be able to randomly splice & remove nodes non-destructively
+  // Copying nodesArr to be able to randomly splice & remove nodes non-destructively (i.e. not effecting nodesArr[])
   var nodesArrDup = nodesArr.map((x) => x), 
-      randomNodeIndex,
+      randomNodeIndex, // randomIndex to pick
       randomNode;
 
   // Picking up random nodes, and populating their children
-  // for (var i = 0; i < maxNodeNum; i++)
-  // {
-  //   randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
-  //   var randomNode =  nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
-  //   // randomNode.id = i; // d3 seems to require all nodes ot have a unique ID
-  //   selectedNodes.push( randomNode );
-  // }
+  for (var i = 0; i < maxNodeNum; i++)
+  {
+    randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
+    randomNode      = nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
+    selectedNodes.push( randomNode ); // Holds IDs of all on-screen nodes. I.e. Contains a subset of nodesArr[]
+  }
 
   // For debugging, picking the same 10 initial nodes everytime
-  selectedNodes = nodesArrDup.splice(0,10);
+  // selectedNodes = nodesArrDup.splice(0,10);
 
-
-  // Adding children after all the random nodes have been selected, to prevent initial nodes from missing added nodes
+  // Getting children IDs for out selected nodes
   selectedNodes.forEach( node => node.children = getNodeChildren(node.id));
-
 
   root = selectedNodes;
   root.fixed = true;
@@ -76,73 +82,56 @@ d3.json("assets/js/json/data.json", function(json) {
   root.y = h / 4;
  
  
-  // Build the path
+  // Build the path (d3 initializing stuff)
   var defs = vis.insert("svg:defs")
       .data(["end"]);
- 
  
   defs.enter().append("svg:path")
       .attr("d", "M0,-5L10,0L0,5");
  
   update();
-});
+});//json loading ENDs
 
-var aspect = innerWidth / innerHeight,
-    chart = d3.select('#vis > svg');
-d3.select(window)
-  .on("resize", function() {
-    console.log('resize is called');
-    var targetWidth = chart.node().getBoundingClientRect().width;
-    chart.attr("width", targetWidth);
-    chart.attr("height", targetWidth / aspect);
-    w = innerWidth,
-    h = innerHeight;
-  });
- 
- 
-/**
- *   
- */
+
+// Initialises (or refreshes) the D3 layout
 function update() {
 
-  var nodes = selectedNodes; //flatten(root);
+  var nodes = selectedNodes; 
   var links = d3.layout.tree().links(selectedNodes);
  
   
   // Restart the force layout.
   force.nodes(nodes)
     .links(links)
-    .gravity(0.05)
+    .gravity(0.1)
     .charge(-1500)
-    .linkDistance(100)
-    .friction(0.5)
+    .linkDistance(200)
+    .friction(0.1)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
     .on("tick", tick)
         .start();
  
-   path = vis.selectAll("path.link")
-      .data(links, function(d) { return d.target.id; });
+
+  path = vis.selectAll("path.link")
+    .data(links, function(d) { return d.target.id; });
+
+  path.enter().insert("svg:path")
+    .attr("class", "link")
+    .style("stroke", "#eee");
  
-    path.enter().insert("svg:path")
-      .attr("class", "link")
-      .style("stroke", "#eee");
  
- 
-  // Exit any old paths.
+  // Exit (close, in D3 parlance) any old paths.
   path.exit().remove();
- 
  
   // Update the nodes…
   node = vis.selectAll("g.node")
       .data(nodes, function(d) { return d.id; });
  
- 
   // Enter any new nodes.
   var nodeEnter = node.enter().append("svg:g")
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .on("click", click)
       .call(force.drag);
  
   // Append a circle
@@ -152,12 +141,11 @@ function update() {
  
    
   // Append images
-  // Workaround to load images on GitHub pages
+  // imageBasePath workaround to load images on GitHub pages
   var imageBasePath = (document.location.href.indexOf('github') === -1 ? '/assets/images' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/images');
   var images = nodeEnter.append("svg:image")
         // ternary operator checks to ensure this node has an image
         .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + '/doodles-100px/' + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
-        // .attr("xlink:href", function(d) { return imageBasePath + "_029-loop.png"})
         .attr("x", function(d) { return -30;})
         .attr("y", function(d) { return -30;})
         .attr("height", 60)
@@ -165,26 +153,26 @@ function update() {
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
-          .on( 'mouseenter', function() {
-            // select element in current context
-            d3.select( this )
-              .transition()
-              .duration(750)
-              .attr("x", function(d) { return -35;})
-              .attr("y", function(d) { return -35;})
-              .attr("height", 70)
-              .attr("width", 70);
-          })
-          // set back
-          .on( 'mouseleave', function() {
-            d3.select( this )
-              .transition()
-              .duration(750)
-              .attr("x", function(d) { return -30;})
-              .attr("y", function(d) { return -30;})
-              .attr("height", 60)
-              .attr("width", 60);
-          });
+    .on( 'mouseenter', function() {
+      // select element in current context
+      d3.select( this )
+        .transition()
+        .duration(750)
+        .attr("x", function(d) { return -35;})
+        .attr("y", function(d) { return -35;})
+        .attr("height", 70)
+        .attr("width", 70);
+    })
+    // set back
+    .on( 'mouseleave', function() {
+      d3.select( this )
+        .transition()
+        .duration(750)
+        .attr("x", function(d) { return -30;})
+        .attr("y", function(d) { return -30;})
+        .attr("height", 60)
+        .attr("width", 60);
+    });
   
   // Text container element, <g> group holds the title & artist fields. And a link [] icon for external links
   var textContainer = nodeEnter.append('svg:g')
@@ -193,7 +181,7 @@ function update() {
     .attr("x", x_browser)
     .attr("y", y_browser + 15)
 
-  // Title
+  // Title label
   textContainer.append("text")
     .attr("class", "nodeTitle")
     .on( 'click', linkClickHandler)
@@ -203,7 +191,7 @@ function update() {
     .attr("fill", tcBlack)
     .text(function(d) { return d.title; })
 
-  // Artist
+  // Artist label
   textContainer.append('text')
     .attr('class', 'nodeArtist')
     .on('click', linkClickHandler)
@@ -213,9 +201,8 @@ function update() {
     .attr("fill", tcBlack)
     .text(function(d) { return d.artist; })
 
-    
 
-  // Setting the bounding box, for all text-containers. Used to draw a rectangle area
+  // Setting the bounding box, for all text-containers. This is used to draw a rectangle area
   textContainer.call(getBB);
 
   // Adding a background rectangle, behind the text container
@@ -230,7 +217,7 @@ function update() {
       .style('stroke', '#ccc')
       .on( 'click', linkClickHandler);
 
-  // External links icon, for _blank links
+  // Adding external links icon, for _blank links
   textContainer.append('svg:image')
     .attr('xlink:href', function(d) { return d.link.target === "_blank" ? imageBasePath + '/link.png' : ''})
     .attr('x', function(image){ return Number(this.parentNode.querySelector('rect').getAttribute('width') / 2) + 5 })
@@ -238,11 +225,8 @@ function update() {
     .attr('width', 15)
     .attr('height', 15)
 
-
-  // Opens the URL
+  // Label click-handler, opens the URL
   function linkClickHandler(d) {
-    console.log(d.link.target);
-    // window.location = d.link.url;
     window.open(d.link.url, d.link.target);
   }
 
@@ -256,7 +240,6 @@ function update() {
     })
   }
  
- 
   // Exit any old nodes.
   node.exit().remove();
  
@@ -265,12 +248,9 @@ function update() {
   path = vis.selectAll("path.link");
   node = vis.selectAll("g.node");
 
-// Moving the node to the center  
-          // d3.select( this.closest('.node') )
-
-  node.on('dragenter', e => {console.log(`${e.target} is dragged`)});
+  // node.on('dragenter', e => {console.log(`${e.target} is dragged`)});
   
-  // Node click handler
+  // Node click handler, centers nodes
   node.on('click', function(d){
 
     // Adding node children. 
@@ -281,8 +261,7 @@ function update() {
         childrenToAdd = [];
 
     
-
-    // This node has too many unadded children, we're plucking random children to add
+    // If this node has too many unadded children, we're plucking random children to add
     if( nodesArrChildren.length > maxNodesToAdd)
     {
       // Randomly selecting child nodes, after shuffling nodesArrChildren[], explaination: https://stackoverflow.com/a/49479872/1290849
@@ -298,15 +277,14 @@ function update() {
     // Culling extraneous nodes
     if(selectedNodes.length + childrenToAdd.length > maxNodeNum)
     {
+      // Removing 5 random nodes
       for(var i = 0; i <= 5; i++)
       {
         let randomIndex = Math.floor(Math.random() * selectedNodes.length);
 
         // Ensuring that we don't cull the parent node to which we're adding children, in the next step
         if(selectedNodes[randomIndex].id !== d.id)
-        {
           selectedNodes.splice(randomIndex, 1);
-        }
       }
     }
 
@@ -328,16 +306,17 @@ function update() {
         dx,
         dy;
 
+    // RequestAnimationFrame event-handler
     function step(timestamp){
-      console.log('step called');
 
+      // Animating the node towards the center
       dx = targetX - d.x,
       dy = targetY - d.y;
       d.x += dx / divisor;
       d.y += dy / divisor;
       d.px = d.x;
       d.py = d.y;
-      tick();
+      tick(); // updates the screen
       
       
       if(Math.abs(dx) > 10 || Math.abs(dy) > 10)
@@ -349,66 +328,15 @@ function update() {
         d.y = targetY;
         d.px = d.x;
         d.py = d.y;
-        
-        // Build the path
-        // var defs = vis.insert("svg:defs")
-        //   .data(["end"]);
- 
- 
-        // defs.enter().append("svg:path")
-        //   .attr("d", "M0,-5L10,0L0,5");
-        // debugger;
       }
-      
-    }
+    }// step() ENDs
 
     window.requestAnimationFrame(step);
-
-    // node.attr("link", function(na){
-
-    // })
-    // d.x = w / 2, 
-    // d.y = h / 2,
-    // d.px = d.x,
-    // d.py = d.y,
-    // d.fixed = true;
-    // tick();
-
-    // 
-    // d3.select(this)
-    //   .transition()
-    //   .attr('x', function(d){  return ( w / 2)})
-    //   .attr('y', function(d){ return ( h / 2)})
-    //   .attr('px', function(d){  return ( w / 2)})
-    //   .attr('py', function(d){ return ( h / 2)})
-
-    // d.x = w / 2, 
-    // d.y = h / 2,
-    // d.px = d.x,
-    // d.py = d.y,
-    // d.fixed = true;
-    // tick();
-
-    // clickedNode = d;
-    //       isFocusLocked = true;
-          
-    //       // Moving the node to the center  
-    //       d3.select( this.closest('.node') )
-    //           // .transition()
-    //           // .attr("x", function(d) {  return (- window.innerWidth / 2) + this.getBBox().width })
-    //           // .attr("y", function(d) { return h / 2;})
-
   })
- 
-
-  console.log('update is called');
 }// Update function ends
 
-// The basic enterFrame function
+// The basic D3 enterFrame function. Used to move nodes about
 function tick() {
-
-  // if(!isFocusLocked)
-  // {
 
     path.attr("d", function(d) {
         
@@ -420,16 +348,12 @@ function tick() {
                 + d.source.y 
                 + "L" + d.target.x + "," 
                 + d.target.y;
-
-      // 
       return val;
     });
 
-    node.attr("transform", nodeTransform);
-  
+    node.attr("transform", nodeTransform);  
 }
 
- 
 /**
  * Gives the coordinates of the border for keeping the nodes inside a frame
  * http://bl.ocks.org/mbostock/1129492
@@ -444,21 +368,6 @@ function nodeTransform(d) {
     
   }
   return "translate(" + d.x + "," + d.y + ")";
-}
- 
-/**
- * Toggle children on click.
- */ 
-function click(d) {
-  // if (d.children) {
-  //   d._children = d.children;
-  //   d.children = null;
-  // } else {
-  //   d.children = d._children;
-  //   d._children = null;
-  // }
- 
-  // update();
 }
  
 // returns an array of children nodes. If addToStage, all children nodes are also added to the stage tree
@@ -493,9 +402,7 @@ function getNodeByID(nodeID){
   return node;
 }
  
-/**
- * Returns a list of all nodes under the root. 
- */ 
+/*** Returns a list of all nodes under the root. Leaving this as a reference, the D3v3 bl.ocks.org Marvel example uses this http://bl.ocks.org/eesur/raw/be2abfb3155a38be4de4/ */ 
 function flatten(root) {
 
   var nodes = root,
@@ -509,28 +416,3 @@ function flatten(root) {
 
   return nodes;
 }
-
-
-// Returns IDs of nodes currently active
-function getActiveNodeIDs(){
-
-}
-
-
-
-// function flatten(root) {
-//   var nodes = []; 
-//   var i = 0;
- 
-//   function recurse(node) {
-//     if (node.children) 
-//       node.children.forEach(recurse);
-//     if (!node.id) 
-//       node.id = ++i;
-//     nodes.push(node);
-//   }
- 
-//   recurse(root);
-//   
-//   return nodes;
-// }
