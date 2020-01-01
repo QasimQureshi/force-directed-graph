@@ -153,10 +153,10 @@ function update() {
    
   // Append images
   // Workaround to load images on GitHub pages
-  var imageBasePath = (document.location.href.indexOf('github') === -1 ? '/assets/images/doodles-100px/' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/images/doodles-100px/');
+  var imageBasePath = (document.location.href.indexOf('github') === -1 ? '/assets/images' : 'https://raw.githubusercontent.com/QasimQureshi/force-directed-graph/master/assets/images');
   var images = nodeEnter.append("svg:image")
         // ternary operator checks to ensure this node has an image
-        .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
+        .attr("xlink:href",  function(d) { return !!d.image ? imageBasePath + '/doodles-100px/' + d.image.url.substr(d.image.url.lastIndexOf('/') + 1) : null;})
         // .attr("xlink:href", function(d) { return imageBasePath + "_029-loop.png"})
         .attr("x", function(d) { return -30;})
         .attr("y", function(d) { return -30;})
@@ -185,23 +185,41 @@ function update() {
               .attr("height", 60)
               .attr("width", 60);
           });
+  
+  // Text container element, <g> group holds the title & artist fields. And a link [] icon for external links
+  var textContainer = nodeEnter.append('svg:g')
+    .attr('class', 'textContainer')
+    .on( 'click', linkClickHandler)
+    .attr("x", x_browser)
+    .attr("y", y_browser + 15)
 
-  // Appending details on roll over next to the node as well
-  nodeEnter.append("text")
-      .attr("class", "nodetext")
-      .on( 'click', linkClickHandler)
-      .attr('text-anchor', 'middle')
-      .attr("x", x_browser)
-      .attr("y", y_browser +15)
-      .attr("fill", tcBlack)
-      .text(function(d) { return d.id; })
-      .call(getBB);
+  // Title
+  textContainer.append("text")
+    .attr("class", "nodeTitle")
+    .on( 'click', linkClickHandler)
+    .attr('text-anchor', 'middle')
+    .attr("x", x_browser)
+    .attr("y", y_browser +15)
+    .attr("fill", tcBlack)
+    .text(function(d) { return d.title; })
 
-      // var textNode = node.filter(function(d) {return (!d.image)});
-      // 
+  // Artist
+  textContainer.append('text')
+    .attr('class', 'nodeArtist')
+    .on('click', linkClickHandler)
+    .attr('text-anchor', 'middle')
+    .attr("x", x_browser)
+    .attr("y", y_browser +35)
+    .attr("fill", tcBlack)
+    .text(function(d) { return d.artist; })
 
-  // Adding a background behind link labels
-  d3.selectAll('g.node')
+    
+
+  // Setting the bounding box, for all text-containers. Used to draw a rectangle area
+  textContainer.call(getBB);
+
+  // Adding a background rectangle, behind the text container
+  d3.selectAll('g.textContainer')
       .insert('rect', 'text')
       .attr('class', 'textRect')
       .attr('width', function(d){ return d.bbox.width + 10 })
@@ -212,6 +230,15 @@ function update() {
       .style('stroke', '#ccc')
       .on( 'click', linkClickHandler);
 
+    // External links icon
+
+  textContainer.append('svg:image')
+    .attr('xlink:href', function(d) { return d.link.target === "_blank" ? imageBasePath + '/link.png' : ''})
+    .attr('x', function(image){ return Number(this.parentNode.querySelector('rect').getAttribute('width') / 2) + 5 })
+    .attr('y', function(image){return Number(this.parentNode.querySelector('rect').getAttribute('height')) + 10 })
+    .attr('width', 15)
+    .attr('height', 15)
+
 
   // Opens the URL
   function linkClickHandler(d) {
@@ -220,8 +247,11 @@ function update() {
 
   // Returns a bounding box - used to draw rectangles behind text labels, when a node is hovered upon
   function getBB(selection){
+    let padding = 10;// Adding padding to render a link element
     selection.each(function(d){
-      d.bbox = this.getBBox();
+      let bbox = this.getBBox();
+      bbox.width = bbox.width + padding;
+      d.bbox = bbox;
     })
   }
  
@@ -239,7 +269,7 @@ function update() {
 
   node.on('dragenter', e => {console.log(`${e.target} is dragged`)});
   
-  // Node click handler asdf
+  // Node click handler
   node.on('click', function(d){
 
     // Adding node children. 
@@ -264,7 +294,7 @@ function update() {
       childrenToAdd = nodesArrChildren;
     }
 
-    // Culling excessive nodes
+    // Culling extraneous nodes
     if(selectedNodes.length + childrenToAdd.length > maxNodeNum)
     {
       for(var i = 0; i <= 5; i++)
@@ -395,9 +425,6 @@ function tick() {
     });
 
     node.attr("transform", nodeTransform);
-  // }else{
-  //   
-  // }
   
 }
 

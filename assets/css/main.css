@@ -4,17 +4,30 @@ path.link {
   fill: none;
   stroke-width: 2px;
 }
-.node:not(:hover) .nodetext {
-  /*display: none;*/
-  visibility: hidden;
-  opacity: 0.6;
+
+g.textContainer > text {
+	font-size: 0.75em;
+    font-family: sans-serif;
 }
 
-.nodetext:hover {
+.nodeTitle {
+	font-weight: bold;
+    font-size: 0.75em;
+    font-family: sans-serif;
+}
+
+.node:not(:hover) .nodeTitle {
+  /*display: none;*/
+  /*visibility: hidden;*/
+  opacity: 0.6;
+
+}
+
+.nodeTitle:hover {
 	opacity: 1;
 }
 
-.nodetext:hover + .textRect {
+.nodeTitle:hover + .textRect {
 	opacity: 0.9 !important;
 }
 
