@@ -230,8 +230,7 @@ function update() {
       .style('stroke', '#ccc')
       .on( 'click', linkClickHandler);
 
-    // External links icon
-
+  // External links icon, for _blank links
   textContainer.append('svg:image')
     .attr('xlink:href', function(d) { return d.link.target === "_blank" ? imageBasePath + '/link.png' : ''})
     .attr('x', function(image){ return Number(this.parentNode.querySelector('rect').getAttribute('width') / 2) + 5 })
@@ -242,7 +241,9 @@ function update() {
 
   // Opens the URL
   function linkClickHandler(d) {
+    console.log(d.link.target);
     // window.location = d.link.url;
+    window.open(d.link.url, d.link.target);
   }
 
   // Returns a bounding box - used to draw rectangles behind text labels, when a node is hovered upon
