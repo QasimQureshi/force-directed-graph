@@ -16,20 +16,21 @@ g.textContainer > text {
     font-family: sans-serif;
 }
 
-.node:not(:hover) .nodeTitle {
+.node .textContainer {
   /*display: none;*/
   /*visibility: hidden;*/
-  opacity: 0.6;
-
+  opacity: 0;
+  transition: 0.2s linear opacity;
 }
 
-.nodeTitle:hover {
-	opacity: 1;
+.node:hover > .textContainer {
+	opacity: 0.5;
 }
 
-.nodeTitle:hover + .textRect {
-	opacity: 0.9 !important;
+.textContainer:hover {
+	opacity: 1 !important;
 }
+
 
 .node:hover {
 	cursor: pointer;
@@ -39,13 +40,6 @@ g.textContainer > text {
 	/*opacity: 0;*/
 }
 
-.node:hover .textRect {
-	opacity: 0.5;
-}
-
-.textRect:hover {
-	opacity: 0.9 !important;
-}
 
 h1 { font-size: 36px; margin: 10px 0; text-transform: uppercase; font-weight: normal;}
 h2, h3 { font-size: 18px; margin: 5px 0 ; font-weight: normal;}
