@@ -3,14 +3,14 @@ var w = innerWidth,
     h = innerHeight,
     tcBlack = "#808080",
     vis, // points to our container element
-    maxNodeSize = 50,
+    maxNodeSize = 40,
     maxNodesToAdd = 5, // The maximum number of children to add in one go
     x_browser = 20, // SVG element's positioning
     y_browser = 25,
     isFocusLocked = false,  // Set to true when we're moving a node to the center & selecting it
     clickedNode, // Points to the node that was clicked
     root,
-    maxNodeNum = Math.floor(10 + Math.random() * 10), // Number of nodes to render onscreen. Random between 20 - 50
+    maxNodeNum = Math.floor(15 + Math.random() * 10), // Number of nodes to render onscreen. Random between 20 - 50
     path,    // All the paths connecting nodes
     nodesArr,// Array of all nodes
     linksArr,// Array of link data
@@ -20,6 +20,8 @@ var w = innerWidth,
     nodeIDs, // Array of all IDs (used to determine which links to form)
     force = d3.layout.force(),  // D3's force layoud
     aspect = innerWidth / innerHeight,
+    nodes,  // D3's nodes & links
+    links,
     chart = d3.select('#vis > svg');
     
 
@@ -63,15 +65,15 @@ d3.json("assets/js/json/data.json", function(json) {
       randomNode;
 
   // Picking up random nodes, and populating their children
-  for (var i = 0; i < maxNodeNum; i++)
-  {
-    randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
-    randomNode      = nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
-    selectedNodes.push( randomNode ); // Holds IDs of all on-screen nodes. I.e. Contains a subset of nodesArr[]
-  }
+  // for (var i = 0; i < maxNodeNum; i++)
+  // {
+  //   randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
+  //   randomNode      = nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
+  //   selectedNodes.push( randomNode ); // Holds IDs of all on-screen nodes. I.e. Contains a subset of nodesArr[]
+  // }
 
   // For debugging, picking the same 10 initial nodes everytime
-  // selectedNodes = nodesArrDup.splice(0,10);
+  selectedNodes = nodesArrDup.splice(0,10);
 
   // Getting children IDs for out selected nodes
   selectedNodes.forEach( node => node.children = getNodeChildren(node.id));
@@ -95,9 +97,9 @@ d3.json("assets/js/json/data.json", function(json) {
 
 // Initialises (or refreshes) the D3 layout
 function update() {
-
-  var nodes = selectedNodes; 
-  var links = d3.layout.tree().links(selectedNodes);
+  
+  nodes = selectedNodes; 
+  links = d3.layout.tree().links(selectedNodes);
  
   
   // Restart the force layout.
@@ -138,7 +140,7 @@ function update() {
   nodeEnter.append("svg:circle")
       .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
       .style("fill", "#eee");
- 
+
    
   // Append images
   // imageBasePath workaround to load images on GitHub pages
@@ -284,7 +286,21 @@ function update() {
 
         // Ensuring that we don't cull the parent node to which we're adding children, in the next step
         if(selectedNodes[randomIndex].id !== d.id)
+        {
+          // Removing links that have the current node as the source, or destination
+          let deletionNodeID = selectedNodes[randomIndex].id;
+          for(var i = links.length - 1; i >= 0; i--)
+          {
+            console.log(i);
+            if(links[i].source.id === deletionNodeID || links[i].target.id === deletionNodeID)
+            {
+              links.splice(i, 1);
+            }
+          }
           selectedNodes.splice(randomIndex, 1);
+          console.log(`Node IDs removed: ${randomIndex}, parentID is ${d.id}`);
+        }
+
       }
     }
 
@@ -295,9 +311,7 @@ function update() {
 
     //Adding node children. _True_ adds any children elements that aren't on-stage rightnow
     // selectedNodes.find( node => node.id === d.id).children = getNodeChildren(d.id, true); 
-    console.log(`clicked node is ${d.id}, children are`);
-    console.log(d.children);
-    update();
+    update();tick();
 
     // Animating the node to the center
     var targetX = w / 2,
@@ -387,7 +401,7 @@ function getNodeChildren(nodeID, addToStage){
 
     // node does not exist in selectedNodes[], but we'll add it there
     }else if(addToStage){
-      childNode.children = getNodeChildren(childNode.id);
+      childNode.children = [];//getNodeChildren(childNode.id);
       selectedNodes.push(childNode);
     }
   })
