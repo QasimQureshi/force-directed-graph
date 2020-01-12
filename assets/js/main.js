@@ -1,3 +1,4 @@
+'use strict';
 
 var w = innerWidth,
     h = innerHeight,
@@ -64,16 +65,31 @@ d3.json("assets/js/json/data.json", function(json) {
       randomNodeIndex, // randomIndex to pick
       randomNode;
 
-  // Picking up random nodes, and populating their children
-  // for (var i = 0; i < maxNodeNum; i++)
-  // {
-  //   randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
-  //   randomNode      = nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
-  //   selectedNodes.push( randomNode ); // Holds IDs of all on-screen nodes. I.e. Contains a subset of nodesArr[]
-  // }
 
-  // For debugging, picking the same 10 initial nodes everytime
-  selectedNodes = nodesArrDup.splice(0,10);
+  // Picking up nodes to initially populate the screen. if ?initial=1,2,3 IDs are specified in the URL (for testing purposes), those are picked
+  if( !!window.location.search && window.location.search.indexOf('initial') !== -1)
+  {
+    // Splitting the querystring ?initial=1,2,3,4,5 starting from '=', then splitting the ,seperated values & converting them to numbers
+    let IDs = window.location.search.split('=')[1].split(',').map( (string) => Number(string) );
+    selectedNodes = IDs.map( id => {return nodesArr.find( node => node.id === id ) } );
+        debugger;
+
+  }else{
+    // Picking up random nodes, and populating their children
+    for (var i = 0; i < maxNodeNum; i++)
+    {
+      randomNodeIndex = Math.floor(Math.random() * nodesArrDup.length); // Random index, within range
+      randomNode      = nodesArrDup.splice( randomNodeIndex, 1 )[0];    // Node with randomID
+      selectedNodes.push( randomNode ); // Holds IDs of all on-screen nodes. I.e. Contains a subset of nodesArr[]
+    }
+  }
+
+  debugger;
+  // For debugging, picking the same 10 initial nodes everytime asdf
+  // selectedNodes = nodesArrDup.splice(0,10);
+  // selectedNodes.push( nodesArr.find( (node) => node.id === 15) ); // Picked node #77, which is a child of #7 and #8
+  // nodesArr.find( (node) => node.related.includes(14) && node.related.includes(16)) // finding nodes that have common children
+  
 
   // Getting children IDs for out selected nodes
   selectedNodes.forEach( node => node.children = getNodeChildren(node.id));
@@ -191,7 +207,7 @@ function update() {
     .attr("x", x_browser)
     .attr("y", y_browser +15)
     .attr("fill", tcBlack)
-    .text(function(d) { return d.title; })
+    .text(function(d) { return d.id; })// for debugging, showing d.id instead of d.title. asdf
 
   // Artist label
   textContainer.append('text')
@@ -387,7 +403,7 @@ function nodeTransform(d) {
 // returns an array of children nodes. If addToStage, all children nodes are also added to the stage tree
 function getNodeChildren(nodeID, addToStage){
   
-  var relatedLinkIDs = nodesArr.find(node => node.id === nodeID).related; // IDs of nodes related to this one
+  var relatedLinkIDs = nodesArr.find(node => node.id === nodeID).related, // IDs of nodes related to this one
       relatedLinksArr = []; // populated with the actual nodes (not just IDs), this is what we return
 
   // For every link, checking if the child/target node also exists in selectedNodes[]
@@ -405,6 +421,9 @@ function getNodeChildren(nodeID, addToStage){
       selectedNodes.push(childNode);
     }
   })
+
+  if( [18,14,16].includes(nodeID) )
+    debugger;
 
   return relatedLinksArr;
 }
