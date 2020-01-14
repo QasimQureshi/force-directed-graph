@@ -6416,6 +6416,12 @@
           }
           for (j = 0; j < m; ++j) {
             var o = links[j];
+            if(o.source.index === undefined)
+              o.source.index = nodes.find(node => node.id = o.source.id).index;
+
+            if(o.target.index === undefined)
+              o.target.index = nodes.find(node => node.id = o.target.id).index;
+            
             neighbors[o.source.index].push(o.target);
             neighbors[o.target.index].push(o.source);
           }

@@ -72,7 +72,6 @@ d3.json("assets/js/json/data.json", function(json) {
     // Splitting the querystring ?initial=1,2,3,4,5 starting from '=', then splitting the ,seperated values & converting them to numbers
     let IDs = window.location.search.split('=')[1].split(',').map( (string) => Number(string) );
     selectedNodes = IDs.map( id => {return nodesArr.find( node => node.id === id ) } );
-        debugger;
 
   }else{
     // Picking up random nodes, and populating their children
@@ -83,8 +82,7 @@ d3.json("assets/js/json/data.json", function(json) {
       selectedNodes.push( randomNode ); // Holds IDs of all on-screen nodes. I.e. Contains a subset of nodesArr[]
     }
   }
-
-  debugger;
+  
   // For debugging, picking the same 10 initial nodes everytime asdf
   // selectedNodes = nodesArrDup.splice(0,10);
   // selectedNodes.push( nodesArr.find( (node) => node.id === 15) ); // Picked node #77, which is a child of #7 and #8
@@ -423,7 +421,7 @@ function getNodeChildren(nodeID, addToStage){
   })
 
   if( [18,14,16].includes(nodeID) )
-    debugger;
+    // debugger;
 
   return relatedLinksArr;
 }
@@ -431,7 +429,10 @@ function getNodeChildren(nodeID, addToStage){
 // Returns a node object
 function getNodeByID(nodeID){
   let node = nodesArr.filter( node => node.id === nodeID)[0];
-  node.children = [];
+  // node = { ...node};
+  if(node.children === undefined)
+    node.children = [];
+  
   return node;
 }
  
