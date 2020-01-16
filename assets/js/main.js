@@ -23,6 +23,7 @@ var w = innerWidth,
     aspect = innerWidth / innerHeight,
     nodes,  // D3's nodes & links
     links,
+    diagonal, // defines a D3 diagonal projection for use by the node paths later on
     chart = d3.select('#vis > svg');
     
 
@@ -83,7 +84,7 @@ d3.json("assets/js/json/data.json", function(json) {
     }
   }
   
-  // For debugging, picking the same 10 initial nodes everytime asdf
+  // For debugging, picking the same 10 initial nodes everytime
   // selectedNodes = nodesArrDup.splice(0,10);
   // selectedNodes.push( nodesArr.find( (node) => node.id === 15) ); // Picked node #77, which is a child of #7 and #8
   // nodesArr.find( (node) => node.related.includes(14) && node.related.includes(16)) // finding nodes that have common children
@@ -113,8 +114,10 @@ d3.json("assets/js/json/data.json", function(json) {
 function update() {
   
   nodes = selectedNodes; 
-  links = d3.layout.tree().links(selectedNodes);
- 
+  links = d3.layout.tree().links(selectedNodes),
+  diagonal = d3.svg.diagonal().projection(function(d){  //define a d3 diagonal projection for use by the node paths later on asdf
+    return [d.y, d.x]
+  }); 
   
   // Restart the force layout.
   force.nodes(nodes)
@@ -130,15 +133,16 @@ function update() {
  
 
   path = vis.selectAll("path.link")
-    .data(links, function(d) { return d.target.id; });
-
+    .data(links)
+    //, function(d) { debugger; return d.target.id; });
+  
   path.enter().insert("svg:path")
     .attr("class", "link")
     .style("stroke", "#eee");
  
  
   // Exit (close, in D3 parlance) any old paths.
-  path.exit().remove();
+  // path.exit().remove();
  
   // Update the nodes…
   node = vis.selectAll("g.node")
@@ -205,7 +209,7 @@ function update() {
     .attr("x", x_browser)
     .attr("y", y_browser +15)
     .attr("fill", tcBlack)
-    .text(function(d) { return d.id; })// for debugging, showing d.id instead of d.title. asdf
+    .text(function(d) { return d.title; })// for debugging, showing d.id instead of d.title. asdf
 
   // Artist label
   textContainer.append('text')
@@ -255,6 +259,27 @@ function update() {
       d.bbox = bbox;
     })
   }
+
+  // vis.append("path", "g")
+  //   .attr('class', 'link')
+  //   .attr('d', function(){
+      
+  //     var oTarget = {
+  //       x: selectedNodes[1].x,
+  //       y: selectedNodes[1].y
+  //     }
+  //     var oSource = {
+  //       x: selectedNodes[2].x,
+  //       y: selectedNodes[2].y
+  //     };
+
+  //     debugger;
+  //     // asdf
+  //     return diagonal({
+  //       source: oSource,
+  //       target: oTarget
+  //     });
+  //   });
  
   // Exit any old nodes.
   node.exit().remove();
