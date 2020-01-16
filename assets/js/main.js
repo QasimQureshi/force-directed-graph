@@ -11,7 +11,7 @@ var w = innerWidth,
     isFocusLocked = false,  // Set to true when we're moving a node to the center & selecting it
     clickedNode, // Points to the node that was clicked
     root,
-    maxNodeNum = Math.floor(15 + Math.random() * 10), // Number of nodes to render onscreen. Random between 20 - 50
+    maxNodeNum = Math.floor(10 + Math.random() * 5), // Number of nodes to render onscreen. Random between 20 - 50
     path,    // All the paths connecting nodes
     nodesArr,// Array of all nodes
     linksArr,// Array of link data
