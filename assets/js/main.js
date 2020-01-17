@@ -205,7 +205,7 @@ function update() {
   textContainer.append("text")
     .attr("class", "nodeTitle")
     .on( 'click', linkClickHandler)
-    .attr('text-anchor', 'middle')
+    .attr('text-anchor', 'left')
     .attr("x", x_browser)
     .attr("y", y_browser +15)
     .attr("fill", tcBlack)
@@ -215,9 +215,9 @@ function update() {
   textContainer.append('text')
     .attr('class', 'nodeArtist')
     .on('click', linkClickHandler)
-    .attr('text-anchor', 'middle')
+    .attr('text-anchor', 'left')
     .attr("x", x_browser)
-    .attr("y", y_browser +35)
+    .attr("y", y_browser +30)
     .attr("fill", tcBlack)
     .text(function(d) { return d.artist; })
 
@@ -233,14 +233,14 @@ function update() {
       .attr('height', function(d){ return d.bbox.height + 5 })
       .attr('x', function(d){ return d.bbox.x - 5})
       .attr('y', function(d){return d.bbox.y - 2})
-      .style('fill', '#ffffb9')
+      .style('fill', '#ffffd3')
       .style('stroke', '#ccc')
       .on( 'click', linkClickHandler);
 
   // Adding external links icon, for _blank links
   textContainer.append('svg:image')
     .attr('xlink:href', function(d) { return d.link.target === "_blank" ? imageBasePath + '/link.png' : ''})
-    .attr('x', function(image){ return Number(this.parentNode.querySelector('rect').getAttribute('width') / 2) + 5 })
+    .attr('x', function(image){ return Number(this.parentNode.querySelector('rect').getAttribute('width')) - 1 })
     .attr('y', function(image){return Number(this.parentNode.querySelector('rect').getAttribute('height')) + 10 })
     .attr('width', 15)
     .attr('height', 15)

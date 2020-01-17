@@ -6,14 +6,14 @@ path.link {
 }
 
 g.textContainer > text {
-	font-size: 0.75em;
-    font-family: sans-serif;
+	font-size: 0.60em;
+  font-family: sans-serif;
 }
 
 .nodeTitle {
 	font-weight: bold;
-    font-size: 0.75em;
-    font-family: sans-serif;
+  font-size: 0.65em;
+  font-family: sans-serif;
 }
 
 .node .textContainer {
