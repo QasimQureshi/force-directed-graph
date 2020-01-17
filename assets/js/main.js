@@ -296,7 +296,7 @@ function update() {
 
     // Adding node children. 
     var parentNodeObj = selectedNodes.find(node => node.id === d.id),
-        clickedNodesChildren = d.children,  // On-screen children of the clicked node (in selectedNodes[])
+        clickedNodesChildren = d.children || [],  // On-screen children of the clicked node (in selectedNodes[])
         nodesArrAllChildren = nodesArr.find(node => node.id === d.id).related, //IDs of all children of the clicked node in nodesArr[]
         nodesArrChildren = nodesArrAllChildren.filter( nodeID => { return !clickedNodesChildren.find( node => node.id === nodeID ) } ), // NodeIDs for children in nodesArrAllChildren[], that _aren't_ currently onscreen
         childrenToAdd = [];
@@ -316,32 +316,38 @@ function update() {
     }
 
     // Culling extraneous nodes
-    if(selectedNodes.length + childrenToAdd.length > maxNodeNum)
-    {
-      // Removing 5 random nodes
-      for(var i = 0; i <= 5; i++)
-      {
-        let randomIndex = Math.floor(Math.random() * selectedNodes.length);
+    // if(selectedNodes.length + childrenToAdd.length > maxNodeNum)
+    // {
+    //   // Removing 5 random nodes
+    //   for(var i = 0; i <= 5; i++)
+    //   {
+    //     let randomIndex = Math.floor(Math.random() * selectedNodes.length);
 
-        // Ensuring that we don't cull the parent node to which we're adding children, in the next step
-        if(selectedNodes[randomIndex].id !== d.id)
-        {
-          // Removing links that have the current node as the source, or destination
-          let deletionNodeID = selectedNodes[randomIndex].id;
-          for(var i = links.length - 1; i >= 0; i--)
-          {
-            console.log(i);
-            if(links[i].source.id === deletionNodeID || links[i].target.id === deletionNodeID)
-            {
-              links.splice(i, 1);
-            }
-          }
-          selectedNodes.splice(randomIndex, 1);
-          console.log(`Node IDs removed: ${randomIndex}, parentID is ${d.id}`);
-        }
+    //     // Ensuring that we don't cull the parent node to which we're adding children, in the next step
+    //     if(selectedNodes[randomIndex].id !== d.id)
+    //     {
+    //       // Removing links that have the current node as the source, or destination
+    //       let deletionNodeID = selectedNodes[randomIndex].id;
+    //       for(var i = links.length - 1; i >= 0; i--)
+    //       {
+    //         console.log(i);
+    //         if(links[i].source.id === deletionNodeID || links[i].target.id === deletionNodeID)
+    //         {
+    //           links.splice(i, 1);
+    //         }
+    //       }
+    //       selectedNodes.splice(randomIndex, 1);
+    //       console.log(`Node IDs removed: ${randomIndex}, parentID is ${d.id}`);
+    //     }
 
-      }
-    }
+    //   }
+    // }
+
+    
+
+    // If this node does not have children, we show an empty array (bugfix for children.concat erroring out)
+    if(!parentNodeObj.children)
+      parentNodeObj.children = []
 
     // Adding new nodes
     childrenToAdd = childrenToAdd.map( nodeID => getNodeByID(nodeID)); //conterting nodeIDs to actual node objects
@@ -445,7 +451,7 @@ function getNodeChildren(nodeID, addToStage){
     }
   })
 
-  if( [18,14,16].includes(nodeID) )
+  // if( [18,14,16].includes(nodeID) )
     // debugger;
 
   return relatedLinksArr;
