@@ -115,7 +115,7 @@ function update() {
   
   nodes = selectedNodes; 
   links = d3.layout.tree().links(selectedNodes),
-  diagonal = d3.svg.diagonal().projection(function(d){  //define a d3 diagonal projection for use by the node paths later on asdf
+  diagonal = d3.svg.diagonal().projection(function(d){  //define a d3 diagonal projection for use by the node paths later on
     return [d.y, d.x]
   }); 
   
@@ -142,7 +142,7 @@ function update() {
  
  
   // Exit (close, in D3 parlance) any old paths.
-  // path.exit().remove();
+  path.exit().remove();
  
   // Update the nodes…
   node = vis.selectAll("g.node")
@@ -209,7 +209,7 @@ function update() {
     .attr("x", x_browser)
     .attr("y", y_browser +15)
     .attr("fill", tcBlack)
-    .text(function(d) { return d.title; })// for debugging, showing d.id instead of d.title. asdf
+    .text(function(d) { return d.title; })// for debugging, showing d.id instead of d.title.
 
   // Artist label
   textContainer.append('text')
@@ -274,7 +274,7 @@ function update() {
   //     };
 
   //     debugger;
-  //     // asdf
+  
   //     return diagonal({
   //       source: oSource,
   //       target: oTarget
@@ -316,32 +316,40 @@ function update() {
     }
 
     // Culling extraneous nodes
-    // if(selectedNodes.length + childrenToAdd.length > maxNodeNum)
-    // {
-    //   // Removing 5 random nodes
-    //   for(var i = 0; i <= 5; i++)
-    //   {
-    //     let randomIndex = Math.floor(Math.random() * selectedNodes.length);
+    if(selectedNodes.length + childrenToAdd.length > maxNodeNum)
+    {
+      // Removing 5 random nodes
+      for(var i = 0; i <= 5; i++)
+      {
+        let randomIndex = Math.floor(Math.random() * selectedNodes.length);
 
-    //     // Ensuring that we don't cull the parent node to which we're adding children, in the next step
-    //     if(selectedNodes[randomIndex].id !== d.id)
-    //     {
-    //       // Removing links that have the current node as the source, or destination
-    //       let deletionNodeID = selectedNodes[randomIndex].id;
-    //       for(var i = links.length - 1; i >= 0; i--)
-    //       {
-    //         console.log(i);
-    //         if(links[i].source.id === deletionNodeID || links[i].target.id === deletionNodeID)
-    //         {
-    //           links.splice(i, 1);
-    //         }
-    //       }
-    //       selectedNodes.splice(randomIndex, 1);
-    //       console.log(`Node IDs removed: ${randomIndex}, parentID is ${d.id}`);
-    //     }
+        // Ensuring that we don't cull the parent node to which we're adding children, in the next step
+        if(selectedNodes[randomIndex].id !== d.id)
+        {
+          // Removing links that have the current node as the source, or destination
+          let deletionNodeID = selectedNodes[randomIndex].id;
+          for(var i = links.length - 1; i >= 0; i--)
+          {
+            console.log(i);
+            if(links[i].source.id === deletionNodeID || links[i].target.id === deletionNodeID)
+            {
+              links.splice(i, 1);
+            }
+          }
+          
+          selectedNodes.splice(randomIndex, 1); // Removing the node
 
-    //   }
-    // }
+          // Removing child references (bugfix for void reference errors)
+          for(var j = selectedNodes.length - 1; j >= 0; j--)
+          {
+            // finding children who have deletionNodeID amongst their children, and filtering them out
+            selectedNodes[j].children = selectedNodes[j].children.filter(child => child.id !== deletionNodeID);
+          }
+          console.log(`Node IDs removed: ${randomIndex}, parentID is ${d.id}`);
+        }
+
+      }
+    }
 
     
 
@@ -354,8 +362,8 @@ function update() {
     parentNodeObj.children = parentNodeObj.children.concat(childrenToAdd); // Adding nodes as children, of the parent object (used to render links)
     selectedNodes = selectedNodes.concat(childrenToAdd);  // Adding nodes (used to render node elements)
 
-    //Adding node children. _True_ adds any children elements that aren't on-stage rightnow
-    // selectedNodes.find( node => node.id === d.id).children = getNodeChildren(d.id, true); 
+    // Adding node children. _True_ adds any children elements that aren't on-stage rightnow asdf
+    selectedNodes.find( node => node.id === d.id).children = getNodeChildren(d.id, true); 
     update();tick();
 
     // Animating the node to the center
@@ -435,6 +443,12 @@ function getNodeChildren(nodeID, addToStage){
   var relatedLinkIDs = nodesArr.find(node => node.id === nodeID).related, // IDs of nodes related to this one
       relatedLinksArr = []; // populated with the actual nodes (not just IDs), this is what we return
 
+  // Limiting the number of children added, in addToStage mode
+  if(addToStage && relatedLinkIDs.length > maxNodesToAdd)
+  {
+    shuffleArray(relatedLinkIDs);
+    relatedLinkIDs = relatedLinkIDs.splice(0, maxNodesToAdd)
+  }
   // For every link, checking if the child/target node also exists in selectedNodes[]
   relatedLinkIDs.forEach(childID => {
     var childNode = getNodeByID(childID);
@@ -465,6 +479,14 @@ function getNodeByID(nodeID){
     node.children = [];
   
   return node;
+}
+
+// Used to shuffle new children, before picking maxChildrenToAdd asdf
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
 }
  
 /*** Returns a list of all nodes under the root. Leaving this as a reference, the D3v3 bl.ocks.org Marvel example uses this http://bl.ocks.org/eesur/raw/be2abfb3155a38be4de4/ */ 
