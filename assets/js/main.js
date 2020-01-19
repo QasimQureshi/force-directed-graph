@@ -24,7 +24,7 @@ var w = innerWidth,
     nodes,  // D3's nodes & links
     links,
     diagonal, // defines a D3 diagonal projection for use by the node paths later on
-    childrenIDs, // Newly added children are animated
+    selectedNodeIDs, // Used to filter for extraneous links
     chart = d3.select('#vis > svg');
     
 
@@ -114,14 +114,14 @@ d3.json("assets/js/json/data.json", function(json) {
 // Initialises (or refreshes) the D3 layout
 function update() {
   
-  nodes = selectedNodes; 
+  selectedNodeIDs = selectedNodes.map(node => node.id),
   links = d3.layout.tree().links(selectedNodes),
   diagonal = d3.svg.diagonal().projection(function(d){  //define a d3 diagonal projection for use by the node paths later on
     return [d.y, d.x]
   }); 
   
   // Restart the force layout.
-  force.nodes(nodes)
+  force.nodes(selectedNodes)
     .links(links)
     .gravity(0.1)
     .charge(-1500)
@@ -136,13 +136,17 @@ function update() {
       // A > B links automatically produce B > A links as well. This eliminates these redundant links
       let inverseLinkIndex = array.map(x => x).splice(index).findIndex(nestedLink => nestedLink.source.id === link.target.id && nestedLink.target.id === link.source.id);
       if( inverseLinkIndex === -1 )
-        return link;
+        {
+          // Removing links if both nodes aren't present
+          if(selectedNodeIDs.includes(link.source.id) && selectedNodeIDs.includes(link.target.id))
+            return link;
+        }
     })
 
  
   // Update the nodes…
   node = vis.selectAll("g.node")
-      .data(nodes, function(d) { return d.id; });
+      .data(selectedNodes, function(d) { return d.id; });
  
   // Enter any new nodes.
   var nodeEnter = node.enter().append("svg:g", ":first-child")
@@ -393,7 +397,6 @@ function update() {
       parentNodeObj.children = []
 
     // Adding new nodes
-    childrenIDs = childrenToAdd; // using IDs to fade-in and animate
     childrenToAdd = childrenToAdd.map( nodeID => getNodeByID(nodeID)); //conterting nodeIDs to actual node objects
     parentNodeObj.children = parentNodeObj.children.concat(childrenToAdd); // Adding nodes as children, of the parent object (used to render links)
     selectedNodes = selectedNodes.concat(childrenToAdd);  // Adding nodes (used to render node elements)
