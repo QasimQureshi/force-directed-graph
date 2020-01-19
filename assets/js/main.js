@@ -139,36 +139,27 @@ function update() {
         return link;
     })
 
-  path = vis.selectAll("path.link")
-    .data(links)
-
-    //, function(d) { debugger; return d.target.id; });
-    console.log('LINKS RIGHT NOW');
-    links.map(link => {console.log(`[${link.source.id}, ${link.target.id}]`)})
-  
-  path.enter().insert("svg:path")
-    .attr("class", "link")
-    .style("stroke", "#eee");
- 
- 
-  // Exit (close, in D3 parlance) any old paths.
-  path.exit().remove();
  
   // Update the nodes…
   node = vis.selectAll("g.node")
       .data(nodes, function(d) { return d.id; });
  
   // Enter any new nodes.
-  var nodeEnter = node.enter().append("svg:g")
+  var nodeEnter = node.enter().append("svg:g", ":first-child")
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
       .call(force.drag);
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
-      .style("fill", "#eee");
+      // .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
+      // .style("fill", "#eee");
 
+  nodeEnter.on('mouseenter', function(){
+    // d3.select( this )
+    this.classList.add('noFade');
+    this.parentNode.appendChild(this);
+  })
    
   // Append images
   // imageBasePath workaround to load images on GitHub pages
@@ -205,7 +196,7 @@ function update() {
     });
   
   // Text container element, <g> group holds the title & artist fields. And a link [] icon for external links
-  var textContainer = nodeEnter.append('svg:g')
+  var textContainer = nodeEnter.append('svg:g', ":last-child")
     .attr('class', 'textContainer')
     .on( 'click', linkClickHandler)
     .attr("x", x_browser)
@@ -254,6 +245,22 @@ function update() {
     .attr('y', function(image){return Number(this.parentNode.querySelector('rect').getAttribute('height')) + 10 })
     .attr('width', 15)
     .attr('height', 15)
+
+
+  path = vis.selectAll("path.link")
+    .data(links)
+
+    //, function(d) { debugger; return d.target.id; });
+    console.log('LINKS RIGHT NOW');
+    links.map(link => {console.log(`[${link.source.id}, ${link.target.id}]`)})
+  
+  path.enter().insert("svg:path", ":first-child")
+    .attr("class", "link")
+    .style("stroke", "#eee");
+ 
+ 
+  // Exit (close, in D3 parlance) any old paths.
+  path.exit().remove();
 
   // Label click-handler, opens the URL
   function linkClickHandler(d) {

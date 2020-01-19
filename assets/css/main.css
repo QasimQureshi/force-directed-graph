@@ -16,7 +16,7 @@ g.textContainer > text {
   font-family: sans-serif;
 }
 
-.node {
+.node:not(.noFade) {
   animation: show 4s ease 1;
 }
 
