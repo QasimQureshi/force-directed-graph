@@ -209,7 +209,7 @@ function update() {
     .attr('class', 'textContainer')
     .on( 'click', linkClickHandler)
     .attr("x", x_browser)
-    .attr("y", y_browser + 15)
+    .attr("y", y_browser)
 
   // Title label
   textContainer.append("text")
@@ -219,7 +219,7 @@ function update() {
     .attr("x", x_browser)
     .attr("y", y_browser +15)
     .attr("fill", tcBlack)
-    .text(function(d) { return d.id; })// for debugging, showing d.id instead of d.title.
+    .text(function(d) { return d.title; })// for debugging, showing d.id instead of d.title.
 
   // Artist label
   textContainer.append('text')
