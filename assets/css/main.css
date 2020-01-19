@@ -16,6 +16,14 @@ g.textContainer > text {
   font-family: sans-serif;
 }
 
+.node {
+  animation: show 4s ease 1;
+}
+
+.link {
+  animation: show 8s ease 1; 
+}
+
 .node .textContainer {
   /*display: none;*/
   /*visibility: hidden;*/
@@ -38,6 +46,11 @@ g.textContainer > text {
 
 .textRect {
 	/*opacity: 0;*/
+}
+
+@keyframes show {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 

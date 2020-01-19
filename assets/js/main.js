@@ -24,6 +24,7 @@ var w = innerWidth,
     nodes,  // D3's nodes & links
     links,
     diagonal, // defines a D3 diagonal projection for use by the node paths later on
+    childrenIDs, // Newly added children are animated
     chart = d3.select('#vis > svg');
     
 
@@ -131,10 +132,19 @@ function update() {
     .on("tick", tick)
         .start();
  
+  links = links.filter( (link, index, array) => {
+      // A > B links automatically produce B > A links as well. This eliminates these redundant links
+      let inverseLinkIndex = array.map(x => x).splice(index).findIndex(nestedLink => nestedLink.source.id === link.target.id && nestedLink.target.id === link.source.id);
+      if( inverseLinkIndex === -1 )
+        return link;
+    })
 
   path = vis.selectAll("path.link")
     .data(links)
+
     //, function(d) { debugger; return d.target.id; });
+    console.log('LINKS RIGHT NOW');
+    links.map(link => {console.log(`[${link.source.id}, ${link.target.id}]`)})
   
   path.enter().insert("svg:path")
     .attr("class", "link")
@@ -209,7 +219,7 @@ function update() {
     .attr("x", x_browser)
     .attr("y", y_browser +15)
     .attr("fill", tcBlack)
-    .text(function(d) { return d.title; })// for debugging, showing d.id instead of d.title.
+    .text(function(d) { return d.id; })// for debugging, showing d.id instead of d.title.
 
   // Artist label
   textContainer.append('text')
@@ -315,29 +325,48 @@ function update() {
       childrenToAdd = nodesArrChildren;
     }
 
+    console.log("ADDING NODES", `[${childrenToAdd.toString()}], [${selectedNodes.map(node => node.id).filter(num => !childrenToAdd.includes(num)).toString()}]`);
+
     // Culling extraneous nodes
+    // if(true)
     if(selectedNodes.length + childrenToAdd.length > maxNodeNum)
     {
       // Removing 5 random nodes
-      for(var i = 0; i <= 5; i++)
+      let randomIndexes = [9, 0];
+
+      // for(var i = 0; i < randomIndexes.length; i++)
+      for(var i = 0; i < 5; i++)
       {
-        let randomIndex = Math.floor(Math.random() * selectedNodes.length);
+        let randomIndex = Math.floor(Math.random() * selectedNodes.length),//randomIndexes[i]
+            deletionNodeID = selectedNodes[randomIndex].id;
 
         // Ensuring that we don't cull the parent node to which we're adding children, in the next step
-        if(selectedNodes[randomIndex].id !== d.id)
+        if(deletionNodeID !== d.id)
         {
-          // Removing links that have the current node as the source, or destination
-          let deletionNodeID = selectedNodes[randomIndex].id;
-          for(var i = links.length - 1; i >= 0; i--)
-          {
-            console.log(i);
-            if(links[i].source.id === deletionNodeID || links[i].target.id === deletionNodeID)
-            {
-              links.splice(i, 1);
-            }
-          }
-          
           selectedNodes.splice(randomIndex, 1); // Removing the node
+          console.log(`Deleting node ${deletionNodeID}`);
+          
+          // Finding links to delete
+          let deletionLinkIndex = links.findIndex(link => link.source.id === deletionNodeID || link.target.id === deletionNodeID);
+
+          while (deletionLinkIndex !== -1){
+            console.log(`Deleting link [${links[deletionLinkIndex].source.id}, ${links[deletionLinkIndex].target.id}]`)
+            links.splice(deletionLinkIndex, 1);
+            deletionLinkIndex = links.findIndex(link => link.source.id === deletionNodeID || link.target.id === deletionNodeID)
+          }
+
+          // Removing links that have the current node as the source, or destination
+          // for(var i = links.length - 1; i >= 0; i--)
+          // {
+          //   console.log(i);
+          //   if(links[i].source.id === deletionNodeID || links[i].target.id === deletionNodeID)
+          //   {
+          //     debugger;
+          //     // console.log(`Deleting link. source ID: ${links[i]source.id}, target ID: ${links[i]target.id}, links.length ${links.length}`);
+          //     links.splice(i, 1);
+          //     console.log(`links length ${links.length}`);
+          //   }
+          // }
 
           // Removing child references (bugfix for void reference errors)
           for(var j = selectedNodes.length - 1; j >= 0; j--)
@@ -345,7 +374,6 @@ function update() {
             // finding children who have deletionNodeID amongst their children, and filtering them out
             selectedNodes[j].children = selectedNodes[j].children.filter(child => child.id !== deletionNodeID);
           }
-          console.log(`Node IDs removed: ${randomIndex}, parentID is ${d.id}`);
         }
 
       }
@@ -358,6 +386,7 @@ function update() {
       parentNodeObj.children = []
 
     // Adding new nodes
+    childrenIDs = childrenToAdd; // using IDs to fade-in and animate
     childrenToAdd = childrenToAdd.map( nodeID => getNodeByID(nodeID)); //conterting nodeIDs to actual node objects
     parentNodeObj.children = parentNodeObj.children.concat(childrenToAdd); // Adding nodes as children, of the parent object (used to render links)
     selectedNodes = selectedNodes.concat(childrenToAdd);  // Adding nodes (used to render node elements)
