@@ -2,7 +2,7 @@
 body {font-family: "Source Code Pro", Consolas, monaco, monospace; line-height: 160%; font-size: 16px;  margin: 0; background-image: url(/assets/images/background_004.png); background-size: cover;}
 path.link {
   fill: none;
-  stroke-width: 2px;
+  stroke-width: 1px;
 }
 
 g.textContainer > text {
