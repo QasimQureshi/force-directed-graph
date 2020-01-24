@@ -4,7 +4,7 @@ var w = innerWidth,
     h = innerHeight,
     tcBlack = "#808080",
     vis, // points to our container element
-    maxNodeSize = 40,
+    maxNodeSize = 30,
     maxNodesToAdd = 5, // The maximum number of children to add in one go
     x_browser = 20, // SVG element's positioning
     y_browser = 25,
@@ -340,13 +340,15 @@ function update() {
 
     // Culling extraneous nodes
     // if(true)
-    if(selectedNodes.length + childrenToAdd.length > maxNodeNum)
+    let incrementedNodeCount = selectedNodes.length + childrenToAdd.length;
+    if(incrementedNodeCount > maxNodeNum)
     {
+      let numberOfNodesToDelete = incrementedNodeCount - maxNodeNum;
       // Removing 5 random nodes
-      let randomIndexes = [9, 0];
+      // let randomIndexes = [9, 0];
 
       // for(var i = 0; i < randomIndexes.length; i++)
-      for(var i = 0; i < 5; i++)
+      for(var i = 0; i < numberOfNodesToDelete; i++)
       {
         let randomIndex = Math.floor(Math.random() * selectedNodes.length),//randomIndexes[i]
             deletionNodeID = selectedNodes[randomIndex].id;
@@ -385,6 +387,10 @@ function update() {
             // finding children who have deletionNodeID amongst their children, and filtering them out
             selectedNodes[j].children = selectedNodes[j].children.filter(child => child.id !== deletionNodeID);
           }
+        }else{
+          // We're skipping this node because it's the parent that we're populating children of
+          // decrementing i, so we still remove the same number of nodes
+          i--;
         }
 
       }
@@ -439,6 +445,8 @@ function update() {
 
     window.requestAnimationFrame(step);
   })
+
+  console.log("Total node count: ", selectedNodes.length);
 }// Update function ends
 
 // The basic D3 enterFrame function. Used to move nodes about
