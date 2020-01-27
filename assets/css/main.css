@@ -21,7 +21,7 @@ g.textContainer > text {
 }
 
 .link {
-  animation: show 8s ease 1; 
+  animation: show 4s ease 1; 
 }
 
 .node .textContainer {
