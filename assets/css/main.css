@@ -17,11 +17,11 @@ g.textContainer > text {
 }
 
 .node:not(.noFade) {
-  animation: show 4s ease 1;
+  animation: show 1s ease 1;
 }
 
 .link {
-  animation: show 4s ease 1; 
+  animation: show 0.2s ease 1; 
 }
 
 .node .textContainer {
@@ -32,7 +32,7 @@ g.textContainer > text {
 }
 
 .node:hover > .textContainer {
-	opacity: 0.7;
+	opacity: 0.85;
 }
 
 .textContainer:hover {
