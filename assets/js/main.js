@@ -270,14 +270,12 @@ function update() {
       interval = 1000;// Ensuring that a certain amount of time has elapsed
   // Label click-handler, opens the URL
   function linkClickHandler(d) {
-    debugger;
     if(!wasJustClicked){
       window.open(d.link.url, d.link.target);
 
       wasJustClicked = true;
 
       setTimeout( () => {
-        debugger;
         wasJustClicked = false;
       }, interval)
     }
