@@ -416,7 +416,8 @@ function update() {
         targetY = h / 2,
         divisor = 16,
         dx,
-        dy;
+        dy,
+        minSnapDistance = 3;
 
     // RequestAnimationFrame event-handler
     function step(timestamp){
@@ -431,7 +432,7 @@ function update() {
       tick(); // updates the screen
       
       
-      if(Math.abs(dx) > 10 || Math.abs(dy) > 10)
+      if(Math.abs(dx) > minSnapDistance || Math.abs(dy) > minSnapDistance)
       {
         window.requestAnimationFrame(step);
       }else{
