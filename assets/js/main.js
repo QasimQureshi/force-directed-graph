@@ -11,7 +11,7 @@ var w = innerWidth,
     isFocusLocked = false,  // Set to true when we're moving a node to the center & selecting it
     clickedNode, // Points to the node that was clicked
     root,
-    maxNodeNum = Math.floor(10 + Math.random() * 5), // Number of nodes to render onscreen
+    maxNodeNum = Math.floor(15 + Math.random() * 5), // Number of nodes to render onscreen
     path,    // All the paths connecting nodes
     nodesArr,// Array of all nodes
     linksArr,// Array of link data
@@ -266,9 +266,22 @@ function update() {
   // Exit (close, in D3 parlance) any old paths.
   path.exit().remove();
 
+  let wasJustClicked = false,
+      interval = 1000;// Ensuring that a certain amount of time has elapsed
   // Label click-handler, opens the URL
   function linkClickHandler(d) {
-    window.open(d.link.url, d.link.target);
+    debugger;
+    if(!wasJustClicked){
+      window.open(d.link.url, d.link.target);
+
+      wasJustClicked = true;
+
+      setTimeout( () => {
+        debugger;
+        wasJustClicked = false;
+      }, interval)
+    }
+
   }
 
   // Returns a bounding box - used to draw rectangles behind text labels, when a node is hovered upon
@@ -343,7 +356,8 @@ function update() {
     let incrementedNodeCount = selectedNodes.length + childrenToAdd.length;
     if(incrementedNodeCount > maxNodeNum)
     {
-      let numberOfNodesToDelete = incrementedNodeCount - maxNodeNum;
+      let numberOfNodesToDelete = incrementedNodeCount - maxNodeNum,
+          deletedNodeIDs = []; //Outputted to the console for debugging
       // Removing 5 random nodes
       // let randomIndexes = [9, 0];
 
@@ -357,7 +371,8 @@ function update() {
         if(deletionNodeID !== d.id)
         {
           selectedNodes.splice(randomIndex, 1); // Removing the node
-          console.log(`Deleting node ${deletionNodeID}`);
+          
+          deletedNodeIDs.push(deletionNodeID);
           
           // Finding links to delete
           let deletionLinkIndex = links.findIndex(link => link.source.id === deletionNodeID || link.target.id === deletionNodeID);
@@ -394,6 +409,8 @@ function update() {
         }
 
       }
+
+      console.log(`Deleted nodes: [${deletedNodeIDs.toString()}]`);
     }
 
     
