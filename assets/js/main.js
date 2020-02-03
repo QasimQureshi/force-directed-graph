@@ -452,10 +452,10 @@ function update() {
         window.requestAnimationFrame(step);
       }else{
         // Animation complete
-        d.x = targetX;
-        d.y = targetY;
-        d.px = d.x;
-        d.py = d.y;
+        // d.x = targetX;
+        // d.y = targetY;
+        // d.px = d.x;
+        // d.py = d.y;
       }
     }// step() ENDs
 
