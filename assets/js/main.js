@@ -432,7 +432,7 @@ function update() {
         divisor = 16,
         dx,
         dy,
-        minSnapDistance = 3;
+        minSnapDistance = 1;
 
     // RequestAnimationFrame event-handler
     function step(timestamp){
